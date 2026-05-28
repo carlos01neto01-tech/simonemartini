@@ -3,22 +3,331 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Simone Martini - Pré-candidata a deputada estadual. Sarandi merece voltar a sonhar." />
+
   <title>Simone Martini | Pré-candidata a Deputada Estadual</title>
+  <meta name="description" content="Simone Martini - Pré-candidata a deputada estadual. Sarandi merece voltar a sonhar." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css" />
+
+  <style>
+    :root {
+      --purple: #a800ff;
+      --purple-dark: #3d0c5c;
+      --black: #050505;
+      --white: #ffffff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      background: #f7f1fb;
+      color: var(--black);
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .hero {
+      position: relative;
+      width: 100%;
+      min-height: 100vh;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero__media {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+    }
+
+    .hero__media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+      display: block;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      background:
+        linear-gradient(
+          90deg,
+          rgba(255,255,255,0.78) 0%,
+          rgba(255,255,255,0.58) 27%,
+          rgba(255,255,255,0.18) 47%,
+          rgba(255,255,255,0.00) 68%
+        );
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 3;
+      background:
+        linear-gradient(
+          180deg,
+          rgba(255,255,255,0.08) 0%,
+          rgba(255,255,255,0.00) 48%,
+          rgba(0,0,0,0.10) 100%
+        );
+      pointer-events: none;
+    }
+
+    .hero__content {
+      position: relative;
+      z-index: 4;
+      width: min(100%, 1280px);
+      margin: 0 auto;
+      padding: 0 0 0 92px;
+      max-width: 1280px;
+    }
+
+    .hero__eyebrow {
+      font-size: 14px;
+      line-height: 1;
+      font-weight: 700;
+      letter-spacing: 7px;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      color: #000;
+    }
+
+    .hero__title {
+      font-size: 80px;
+      line-height: 0.92;
+      letter-spacing: -6px;
+      font-weight: 600;
+      color: #000;
+      margin-bottom: 22px;
+      max-width: 650px;
+    }
+
+    .hero__title span {
+      color: var(--purple);
+    }
+
+    .hero__subtitle {
+      font-size: 25px;
+      line-height: 1.04;
+      font-weight: 300;
+      letter-spacing: -1.6px;
+      max-width: 575px;
+      color: #000;
+      margin-bottom: 25px;
+    }
+
+    .hero__actions {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      width: 515px;
+      max-width: 100%;
+    }
+
+    .btn {
+      width: 100%;
+      min-height: 80px;
+      border-radius: 999px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 35px;
+      line-height: 1;
+      font-weight: 600;
+      letter-spacing: -2px;
+      transition: transform .25s ease, filter .25s ease, background .25s ease;
+      will-change: transform;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      filter: brightness(1.04);
+    }
+
+    .btn--primary {
+      color: #fff;
+      background: linear-gradient(135deg, #9f00ff 0%, #bc00ff 55%, #9700ff 100%);
+      box-shadow: 0 18px 45px rgba(160, 0, 255, 0.28);
+    }
+
+    .btn--secondary {
+      color: var(--purple-dark);
+      background: rgba(255,255,255,0.45);
+      border: 1.8px solid rgba(255,255,255,0.95);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      box-shadow: inset 0 0 20px rgba(255,255,255,0.35);
+    }
+
+    .reveal {
+      opacity: 0;
+      filter: blur(18px);
+      transform: translateY(34px);
+      animation: cascadeReveal .9s cubic-bezier(.2,.75,.22,1) forwards;
+    }
+
+    .reveal-1 { animation-delay: .12s; }
+    .reveal-2 { animation-delay: .28s; }
+    .reveal-3 { animation-delay: .44s; }
+    .reveal-4 { animation-delay: .60s; }
+
+    @keyframes cascadeReveal {
+      to {
+        opacity: 1;
+        filter: blur(0);
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        min-height: 100svh;
+        align-items: flex-end;
+        background: #f9f2fb;
+      }
+
+      .hero__media img {
+        object-position: top center;
+      }
+
+      .hero::before {
+        background:
+          linear-gradient(
+            180deg,
+            rgba(0,0,0,0.00) 0%,
+            rgba(0,0,0,0.02) 36%,
+            rgba(247,241,251,0.35) 50%,
+            rgba(247,241,251,0.84) 61%,
+            rgba(247,241,251,0.98) 76%,
+            #f7f1fb 100%
+          );
+      }
+
+      .hero::after {
+        background:
+          radial-gradient(
+            circle at 50% 58%,
+            rgba(255,255,255,0.68) 0%,
+            rgba(255,255,255,0.26) 26%,
+            rgba(255,255,255,0.00) 48%
+          );
+        backdrop-filter: blur(0px);
+        -webkit-backdrop-filter: blur(0px);
+      }
+
+      .hero__content {
+        width: 100%;
+        padding: 0 26px 54px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .hero__eyebrow {
+        font-size: 7px;
+        letter-spacing: 5px;
+        margin-bottom: 18px;
+        font-weight: 700;
+      }
+
+      .hero__title {
+        font-size: 40px;
+        line-height: 0.95;
+        letter-spacing: -3.2px;
+        margin-bottom: 15px;
+        max-width: 360px;
+      }
+
+      .hero__subtitle {
+        font-size: 15px;
+        line-height: 1.07;
+        letter-spacing: -0.9px;
+        max-width: 330px;
+        margin-bottom: 24px;
+      }
+
+      .hero__actions {
+        width: 100%;
+        gap: 12px;
+      }
+
+      .btn {
+        min-height: 70px;
+        font-size: 25px;
+        letter-spacing: -1.5px;
+      }
+
+      .btn--secondary {
+        border: 2px solid var(--purple-dark);
+        background: rgba(255,255,255,0.42);
+      }
+    }
+
+    @media (max-width: 390px) {
+      .hero__content {
+        padding-left: 22px;
+        padding-right: 22px;
+        padding-bottom: 44px;
+      }
+
+      .hero__title {
+        font-size: 38px;
+      }
+
+      .btn {
+        font-size: 23px;
+        min-height: 66px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal {
+        animation: none;
+        opacity: 1;
+        filter: none;
+        transform: none;
+      }
+
+      .btn {
+        transition: none;
+      }
+    }
+  </style>
 </head>
+
 <body>
-  <main class="page-wrapper">
+  <main>
     <section class="hero" id="inicio" aria-label="Primeira seção Simone Martini">
-      <div class="hero__background" aria-hidden="true"></div>
-      <div class="hero__overlay" aria-hidden="true"></div>
+      <picture class="hero__media" aria-hidden="true">
+        <source media="(max-width: 900px)" srcset="assets/img/PARTE 1 PHONE.webp">
+        <img src="assets/img/PARTE 1 DESKTOP.webp" alt="">
+      </picture>
 
       <div class="hero__content">
-        <p class="hero__eyebrow reveal reveal-1">Pre-candidata a deputada estadual</p>
+        <p class="hero__eyebrow reveal reveal-1">Pré-candidata a deputada estadual</p>
 
         <h1 class="hero__title reveal reveal-2">
           <span>Sarandi</span> merece<br>
