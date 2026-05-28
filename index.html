@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Simone Martini | Pré-candidata a Deputada Estadual</title>
+  <meta name="description" content="Simone Martini - Pré-candidata a deputada estadual. Sarandi merece voltar a sonhar." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --purple: #a800ff;
+      --purple-2: #bd00ff;
+      --purple-dark: #3c0a5d;
+      --black: #030303;
+      --soft-bg: #f8f1fb;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: "Inter", Arial, sans-serif;
+      color: var(--black);
+      background: var(--soft-bg);
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .hero {
+      position: relative;
+      width: 100%;
+      min-height: 100vh;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      isolation: isolate;
+    }
+
+    .hero__picture {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -3;
+    }
+
+    .hero__picture img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      object-position: center center;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      pointer-events: none;
+      background: linear-gradient(
+        90deg,
+        rgba(255,255,255,.80) 0%,
+        rgba(255,255,255,.62) 26%,
+        rgba(255,255,255,.23) 49%,
+        rgba(255,255,255,0) 70%
+      );
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      background: linear-gradient(
+        180deg,
+        rgba(255,255,255,.05) 0%,
+        rgba(255,255,255,0) 54%,
+        rgba(0,0,0,.12) 100%
+      );
+    }
+
+    .hero__content {
+      width: min(100%, 1280px);
+      margin: 0 auto;
+      padding: 0 0 0 90px;
+    }
+
+    .hero__eyebrow {
+      font-size: 14px;
+      line-height: 1;
+      font-weight: 700;
+      letter-spacing: 7px;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+
+    .hero__title {
+      max-width: 660px;
+      font-size: 80px;
+      line-height: .92;
+      font-weight: 600;
+      letter-spacing: -6px;
+      margin-bottom: 23px;
+    }
+
+    .hero__title span { color: var(--purple); }
+
+    .hero__subtitle {
+      max-width: 580px;
+      font-size: 25px;
+      line-height: 1.04;
+      font-weight: 300;
+      letter-spacing: -1.55px;
+      margin-bottom: 26px;
+    }
+
+    .hero__actions {
+      width: 515px;
+      max-width: calc(100vw - 48px);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .btn {
+      width: 100%;
+      min-height: 86px;
+      border-radius: 999px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-size: 35px;
+      line-height: 1;
+      font-weight: 600;
+      letter-spacing: -2.2px;
+      transition: transform .25s ease, filter .25s ease;
+    }
+
+    .btn:hover { transform: translateY(-3px); filter: brightness(1.04); }
+
+    .btn--primary {
+      color: #fff;
+      background: linear-gradient(135deg, #9800ff 0%, var(--purple-2) 54%, #9c00ff 100%);
+      box-shadow: 0 18px 45px rgba(168,0,255,.26);
+    }
+
+    .btn--secondary {
+      color: var(--purple-dark);
+      background: rgba(255,255,255,.46);
+      border: 1.7px solid rgba(255,255,255,.95);
+      box-shadow: inset 0 0 24px rgba(255,255,255,.38);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(34px);
+      filter: blur(18px);
+      animation: revealCascade .9s cubic-bezier(.18,.78,.22,1) forwards;
+    }
+
+    .reveal-1 { animation-delay: .10s; }
+    .reveal-2 { animation-delay: .26s; }
+    .reveal-3 { animation-delay: .42s; }
+    .reveal-4 { animation-delay: .58s; }
+
+    @keyframes revealCascade {
+      to { opacity: 1; transform: translateY(0); filter: blur(0); }
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        min-height: 100svh;
+        align-items: flex-end;
+      }
+
+      .hero__picture img { object-position: top center; }
+
+      .hero::before {
+        background: linear-gradient(
+          180deg,
+          rgba(0,0,0,0) 0%,
+          rgba(0,0,0,0) 34%,
+          rgba(248,241,251,.25) 49%,
+          rgba(248,241,251,.82) 62%,
+          rgba(248,241,251,.98) 78%,
+          #f8f1fb 100%
+        );
+      }
+
+      .hero::after {
+        background: radial-gradient(
+          circle at 50% 60%,
+          rgba(255,255,255,.65) 0%,
+          rgba(255,255,255,.27) 27%,
+          rgba(255,255,255,0) 50%
+        );
+      }
+
+      .hero__content {
+        width: 100%;
+        padding: 0 26px 54px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .hero__eyebrow {
+        font-size: 7px;
+        line-height: 1;
+        letter-spacing: 5px;
+        font-weight: 700;
+        margin-bottom: 18px;
+      }
+
+      .hero__title {
+        max-width: 360px;
+        font-size: 40px;
+        line-height: .95;
+        letter-spacing: -3.25px;
+        margin-bottom: 15px;
+      }
+
+      .hero__subtitle {
+        max-width: 335px;
+        font-size: 15px;
+        line-height: 1.08;
+        letter-spacing: -.9px;
+        margin-bottom: 24px;
+      }
+
+      .hero__actions {
+        width: 100%;
+        max-width: 350px;
+        gap: 12px;
+      }
+
+      .btn {
+        min-height: 70px;
+        font-size: 25px;
+        letter-spacing: -1.55px;
+      }
+
+      .btn--secondary {
+        border: 2px solid var(--purple-dark);
+        background: rgba(255,255,255,.45);
+      }
+    }
+
+    @media (max-width: 390px) {
+      .hero__content { padding-left: 22px; padding-right: 22px; padding-bottom: 44px; }
+      .hero__title { font-size: 38px; }
+      .hero__subtitle { font-size: 14.5px; }
+      .btn { min-height: 66px; font-size: 23px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { animation: none; opacity: 1; transform: none; filter: none; }
+      .btn { transition: none; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="hero" id="inicio" aria-label="Primeira seção Simone Martini">
+      <picture class="hero__picture" aria-hidden="true">
+        <source media="(max-width: 900px)" srcset="./assets/img/simone-mobile.webp">
+        <img src="./assets/img/simone-desktop.webp" alt="">
+      </picture>
+
+      <div class="hero__content">
+        <p class="hero__eyebrow reveal reveal-1">Pré-candidata a deputada estadual</p>
+
+        <h1 class="hero__title reveal reveal-2">
+          <span>Sarandi</span> merece<br>
+          voltar a sonhar!
+        </h1>
+
+        <p class="hero__subtitle reveal reveal-3">
+          Simone Martini construiu sua trajetória entre o cuidado com pessoas, experiência pública e compromisso verdadeiro com Sarandi e o Paraná.
+        </p>
+
+        <div class="hero__actions reveal reveal-4">
+          <a class="btn btn--primary" href="#propostas">Conheça minhas propostas</a>
+          <a class="btn btn--secondary" href="#jornada">Faça parte dessa jornada</a>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
