@@ -2376,6 +2376,248 @@
       transition: none;
     }
   }
+<!-- RODAPÉ - SIMONE MARTINI -->
+<style>
+  .site-footer {
+    width: 100%;
+    background: #050006;
+    color: #ffffff;
+    font-family: "Inter", Arial, sans-serif;
+    padding: 70px 70px 36px;
+    overflow: hidden;
+  }
+
+  .site-footer * {
+    box-sizing: border-box;
+  }
+
+  .footer-card {
+    width: 100%;
+    max-width: 1160px;
+    margin: 0 auto;
+    border: 1.5px solid rgba(168, 0, 255, .55);
+    border-radius: 34px;
+    padding: 48px 54px;
+    background:
+      radial-gradient(circle at 18% 0%, rgba(168,0,255,.30), transparent 34%),
+      radial-gradient(circle at 90% 10%, rgba(189,0,255,.20), transparent 32%),
+      linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+    box-shadow: 0 28px 60px rgba(0,0,0,.35);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .footer-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    opacity: .09;
+    pointer-events: none;
+    background-image: radial-gradient(rgba(255,255,255,.75) 1px, transparent 1px);
+    background-size: 4px 4px;
+    mix-blend-mode: overlay;
+  }
+
+  .footer-content {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 48px;
+    align-items: start;
+  }
+
+  .footer-brand-name {
+    font-size: clamp(34px, 3.8vw, 54px);
+    line-height: .92;
+    font-weight: 600;
+    letter-spacing: -3.2px;
+    color: #fff;
+  }
+
+  .footer-brand-name span {
+    color: #b400ff;
+  }
+
+  .footer-column-title {
+    font-size: 14px;
+    line-height: 1;
+    font-weight: 800;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.72);
+    margin-bottom: 22px;
+  }
+
+  .footer-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+  }
+
+  .footer-nav a {
+    color: rgba(255,255,255,.88);
+    font-size: 18px;
+    line-height: 1.1;
+    font-weight: 300;
+    letter-spacing: -.7px;
+    text-decoration: none;
+    transition: color .25s ease, transform .25s ease;
+  }
+
+  .footer-nav a:hover {
+    color: #b400ff;
+    transform: translateX(4px);
+  }
+
+  .footer-socials {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+
+  .footer-social-link {
+    width: 58px;
+    height: 58px;
+    border-radius: 999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-decoration: none;
+    background: linear-gradient(135deg, #9700ff 0%, #bd00ff 56%, #a000ff 100%);
+    box-shadow:
+      0 12px 24px rgba(168,0,255,.32),
+      0 0 22px rgba(168,0,255,.28);
+    transition: transform .25s ease, filter .25s ease;
+  }
+
+  .footer-social-link:hover {
+    transform: translateY(-4px);
+    filter: brightness(1.08);
+  }
+
+  .footer-social-link svg {
+    width: 28px;
+    height: 28px;
+    display: block;
+    fill: currentColor;
+  }
+
+  .footer-whatsapp {
+    background: linear-gradient(135deg, #26d366 0%, #12b957 100%);
+    box-shadow:
+      0 12px 24px rgba(38,211,102,.26),
+      0 0 22px rgba(38,211,102,.22);
+  }
+
+  .footer-bottom {
+    max-width: 1160px;
+    margin: 26px auto 0;
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+    color: rgba(255,255,255,.50);
+    font-size: 13px;
+    line-height: 1.35;
+    font-weight: 300;
+    letter-spacing: -.2px;
+  }
+
+  .footer-bottom strong {
+    color: rgba(255,255,255,.78);
+    font-weight: 700;
+  }
+
+  .footer-reveal {
+    opacity: 0;
+    transform: translateY(42px);
+    filter: blur(16px);
+    transition:
+      opacity .85s cubic-bezier(.18,.78,.22,1),
+      transform .85s cubic-bezier(.18,.78,.22,1),
+      filter .85s cubic-bezier(.18,.78,.22,1);
+  }
+
+  .footer-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+
+  @media (max-width: 900px) {
+    .site-footer {
+      padding: 54px 28px 34px;
+    }
+
+    .footer-card {
+      border-radius: 30px;
+      padding: 42px 28px;
+    }
+
+    .footer-content {
+      display: flex;
+      flex-direction: column;
+      gap: 42px;
+      text-align: center;
+      align-items: center;
+    }
+
+    .footer-brand-name {
+      font-size: 40px;
+      line-height: .92;
+      letter-spacing: -3px;
+    }
+
+    .footer-column-title {
+      font-size: 8px;
+      letter-spacing: 4px;
+      margin-bottom: 18px;
+    }
+
+    .footer-nav {
+      align-items: center;
+      gap: 12px;
+    }
+
+    .footer-nav a {
+      font-size: 16px;
+    }
+
+    .footer-socials {
+      justify-content: center;
+    }
+
+    .footer-social-link {
+      width: 54px;
+      height: 54px;
+    }
+
+    .footer-social-link svg {
+      width: 25px;
+      height: 25px;
+    }
+
+    .footer-bottom {
+      flex-direction: column;
+      text-align: center;
+      align-items: center;
+      font-size: 11px;
+      max-width: 330px;
+      margin-top: 24px;
+    }
+  }
+
+  @media (max-width: 390px) {
+    .footer-card {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    .footer-brand-name {
+      font-size: 37px;
+    }
+  }
 </style>
 
 <footer class="site-footer" id="rodape">
@@ -2383,20 +2625,14 @@
     <div class="footer-content">
 
       <div class="footer-brand">
-        <p class="footer-brand-eyebrow">Simone Martini</p>
-
-        <h2 class="footer-title">
-          Uma jornada feita<br>
-          de <span>presença e compromisso.</span>
+        <h2 class="footer-brand-name">
+          Simone<br>
+          <span>Martini</span>
         </h2>
-
-        <p class="footer-message">
-          Um projeto construído com escuta, responsabilidade e proximidade com as pessoas que acreditam em uma política mais humana, preparada e presente.
-        </p>
       </div>
 
       <div class="footer-pages">
-        <p class="footer-column-title">Páginas do site</p>
+        <p class="footer-column-title">Páginas</p>
 
         <nav class="footer-nav" aria-label="Links das seções do site">
           <a href="#inicio">Início</a>
@@ -2408,7 +2644,7 @@
       </div>
 
       <div class="footer-social">
-        <p class="footer-column-title">Acompanhe</p>
+        <p class="footer-column-title">Redes sociais</p>
 
         <div class="footer-socials">
           <a class="footer-social-link" href="https://www.instagram.com/SEUUSUARIO" target="_blank" rel="noopener" aria-label="Instagram">
@@ -2441,13 +2677,8 @@
   </div>
 
   <div class="footer-bottom">
-    <p>
-      © 2026 <strong>Simone Martini</strong>. Todos os direitos reservados.
-    </p>
-
-    <p>
-      Site em protótipo visual. Formulário demonstrativo, sem armazenamento de dados nesta etapa.
-    </p>
+    <p>© 2026 <strong>Simone Martini</strong>. Todos os direitos reservados.</p>
+    <p>Protótipo visual. Formulário demonstrativo.</p>
   </div>
 </footer>
 
