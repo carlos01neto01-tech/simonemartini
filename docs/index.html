@@ -713,3 +713,365 @@
   </script>
 </body>
 </html>
+<!-- PARTE 4 - PROJETOS E CAUSAS -->
+<style>
+  .projects-section {
+    width: 100%;
+    min-height: 100vh;
+    background: #ffffff;
+    font-family: "Inter", Arial, sans-serif;
+    color: #050505;
+    padding: 96px 64px 120px;
+    overflow: hidden;
+  }
+
+  .projects-section * {
+    box-sizing: border-box;
+  }
+
+  .projects-header {
+    width: 100%;
+    max-width: 980px;
+    margin: 0 auto 78px;
+    text-align: center;
+  }
+
+  .projects-eyebrow {
+    font-size: 14px;
+    line-height: 1;
+    font-weight: 800;
+    letter-spacing: 8px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    color: #111;
+  }
+
+  .projects-title {
+    font-size: clamp(62px, 6vw, 86px);
+    line-height: .88;
+    font-weight: 600;
+    letter-spacing: -6px;
+    color: #000;
+    margin-bottom: 32px;
+  }
+
+  .projects-title span {
+    color: #a800ff;
+  }
+
+  .projects-subtitle {
+    font-size: 25px;
+    line-height: 1.05;
+    font-weight: 300;
+    letter-spacing: -1.4px;
+    color: #000;
+  }
+
+  .projects-subtitle strong {
+    font-weight: 800;
+  }
+
+  .projects-grid {
+    width: 100%;
+    max-width: 1160px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 14px;
+  }
+
+  .project-card {
+    position: relative;
+    min-height: 305px;
+    border: 2px solid #b400ff;
+    border-radius: 34px;
+    background: linear-gradient(180deg, #ffffff 0%, #f7f7f7 45%, #dfdfdf 100%);
+    box-shadow: 0 24px 35px rgba(0, 0, 0, .16);
+    padding: 82px 28px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .project-icon {
+    position: absolute;
+    top: -36px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 86px;
+    height: 86px;
+    border-radius: 999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle at 38% 26%, #d763ff 0%, #b900ff 48%, #9700e8 100%);
+    box-shadow:
+      0 0 0 8px rgba(168, 0, 255, .08),
+      0 13px 22px rgba(168, 0, 255, .46),
+      0 0 28px rgba(168, 0, 255, .58);
+  }
+
+  .project-icon img {
+    width: 52px;
+    height: 52px;
+    object-fit: contain;
+    display: block;
+  }
+
+  .project-content {
+    width: 100%;
+  }
+
+  .project-title {
+    font-size: 34px;
+    line-height: .82;
+    font-weight: 600;
+    letter-spacing: -2.7px;
+    color: #000;
+    margin-bottom: 15px;
+  }
+
+  .project-title span {
+    color: #a800ff;
+  }
+
+  .project-description {
+    font-size: 15px;
+    line-height: 1.02;
+    font-weight: 300;
+    letter-spacing: -.7px;
+    color: #000;
+    max-width: 190px;
+    margin: 0 auto;
+  }
+
+  .project-reveal {
+    opacity: 0;
+    transform: translateY(42px);
+    filter: blur(16px);
+    transition:
+      opacity .85s cubic-bezier(.18,.78,.22,1),
+      transform .85s cubic-bezier(.18,.78,.22,1),
+      filter .85s cubic-bezier(.18,.78,.22,1);
+  }
+
+  .project-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+
+  @media (max-width: 900px) {
+    .projects-section {
+      min-height: auto;
+      padding: 68px 40px 86px;
+    }
+
+    .projects-header {
+      max-width: 360px;
+      margin: 0 auto 78px;
+    }
+
+    .projects-eyebrow {
+      display: none;
+    }
+
+    .projects-title {
+      font-size: 40px;
+      line-height: .88;
+      letter-spacing: -3px;
+      margin-bottom: 20px;
+    }
+
+    .projects-subtitle {
+      font-size: 15px;
+      line-height: 1.05;
+      letter-spacing: -.8px;
+      max-width: 310px;
+      margin: 0 auto;
+    }
+
+    .projects-grid {
+      max-width: 330px;
+      display: flex;
+      flex-direction: column;
+      gap: 72px;
+      align-items: center;
+    }
+
+    .project-card {
+      width: 100%;
+      min-height: 294px;
+      border-radius: 28px;
+      padding: 76px 24px 32px;
+      box-shadow: 0 24px 35px rgba(0, 0, 0, .18);
+    }
+
+    .project-icon {
+      top: -34px;
+      width: 78px;
+      height: 78px;
+    }
+
+    .project-icon img {
+      width: 47px;
+      height: 47px;
+    }
+
+    .project-title {
+      font-size: 34px;
+      line-height: .82;
+      letter-spacing: -2.6px;
+      margin-bottom: 17px;
+    }
+
+    .project-description {
+      font-size: 15px;
+      line-height: 1.03;
+      letter-spacing: -.8px;
+      max-width: 230px;
+    }
+  }
+
+  @media (max-width: 390px) {
+    .projects-section {
+      padding-left: 34px;
+      padding-right: 34px;
+    }
+
+    .projects-title {
+      font-size: 37px;
+    }
+
+    .project-title {
+      font-size: 31px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .project-reveal {
+      opacity: 1;
+      transform: none;
+      filter: none;
+      transition: none;
+    }
+  }
+</style>
+
+<section class="projects-section" id="projetos">
+  <div class="projects-header project-reveal">
+    <p class="projects-eyebrow">Projetos e causas</p>
+
+    <h2 class="projects-title">
+      Um <span>olhar atento</span> para<br>
+      quem mais precisa.
+    </h2>
+
+    <p class="projects-subtitle">
+      Projetos sociais não são <strong>números</strong> — são <strong>vidas transformadas.</strong>
+    </p>
+  </div>
+
+  <div class="projects-grid">
+    <article class="project-card project-reveal">
+      <div class="project-icon">
+        <img src="./assets/img/icone-saude.png" alt="">
+      </div>
+
+      <div class="project-content">
+        <h3 class="project-title">
+          <span>Saúde Visual</span><br>
+          nas Escolas
+        </h3>
+
+        <p class="project-description">
+          Acesso à saúde visual para quem mais precisa.
+        </p>
+      </div>
+    </article>
+
+    <article class="project-card project-reveal">
+      <div class="project-icon">
+        <img src="./assets/img/icone-combate.png" alt="">
+      </div>
+
+      <div class="project-content">
+        <h3 class="project-title">
+          Combate ao<br>
+          <span>assédio</span> e à<br>
+          <span>violência doméstica</span>
+        </h3>
+
+        <p class="project-description">
+          proteção concreta para mulheres e famílias
+        </p>
+      </div>
+    </article>
+
+    <article class="project-card project-reveal">
+      <div class="project-icon">
+        <img src="./assets/img/icone-juridico.png" alt="">
+      </div>
+
+      <div class="project-content">
+        <h3 class="project-title">
+          <span>Apoio jurídico</span> a<br>
+          famílias carentes
+        </h3>
+
+        <p class="project-description">
+          porque direito não pode ser privilégio de quem pode pagar
+        </p>
+      </div>
+    </article>
+
+    <article class="project-card project-reveal">
+      <div class="project-icon">
+        <img src="./assets/img/icone-podcast.png" alt="">
+      </div>
+
+      <div class="project-content">
+        <h3 class="project-title">
+          Podcast<br>
+          "<span>Unindo Propósitos</span>"
+        </h3>
+
+        <p class="project-description">
+          conversas que conectam pessoas e causas
+        </p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const projectItems = document.querySelectorAll(".project-reveal");
+
+    if (!("IntersectionObserver" in window)) {
+      projectItems.forEach(function (item) {
+        item.classList.add("is-visible");
+      });
+      return;
+    }
+
+    const projectObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry, index) {
+        if (entry.isIntersecting) {
+          setTimeout(function () {
+            entry.target.classList.add("is-visible");
+          }, index * 120);
+
+          projectObserver.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.14
+    });
+
+    projectItems.forEach(function (item) {
+      projectObserver.observe(item);
+    });
+  });
+</script>
