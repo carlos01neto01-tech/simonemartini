@@ -1356,3 +1356,449 @@
     });
   });
 </script>
+<!-- PARTE 6 - FORMULÁRIO / PROTÓTIPO -->
+<style>
+  .form-section {
+    width: 100%;
+    min-height: 100vh;
+    background: #ffffff;
+    font-family: "Inter", Arial, sans-serif;
+    color: #050505;
+    padding: 104px 70px 120px;
+    overflow: hidden;
+  }
+
+  .form-section * {
+    box-sizing: border-box;
+  }
+
+  .form-header {
+    max-width: 1050px;
+    margin: 0 auto 92px;
+    text-align: center;
+  }
+
+  .form-eyebrow {
+    font-size: 14px;
+    line-height: 1;
+    font-weight: 800;
+    letter-spacing: 9px;
+    text-transform: uppercase;
+    color: #a800ff;
+    margin-bottom: 20px;
+  }
+
+  .form-title {
+    font-size: clamp(64px, 6vw, 86px);
+    line-height: .88;
+    font-weight: 600;
+    letter-spacing: -6px;
+    color: #000;
+    margin-bottom: 34px;
+  }
+
+  .form-title span {
+    color: #a800ff;
+  }
+
+  .form-subtitle {
+    max-width: 880px;
+    margin: 0 auto;
+    font-size: 25px;
+    line-height: 1.05;
+    font-weight: 300;
+    letter-spacing: -1.4px;
+    color: #000;
+  }
+
+  .lead-form {
+    width: 100%;
+    max-width: 1070px;
+    margin: 0 auto;
+    padding: 74px 46px;
+    border: 2px solid #b400ff;
+    border-radius: 34px;
+    background: linear-gradient(180deg, #ffffff 0%, #f7f7f7 48%, #dfdfdf 100%);
+    box-shadow: 0 24px 36px rgba(0, 0, 0, .15);
+  }
+
+  .form-group {
+    width: 100%;
+    margin-bottom: 24px;
+  }
+
+  .form-group label {
+    display: block;
+    font-size: 23px;
+    line-height: 1;
+    font-weight: 700;
+    letter-spacing: -1.1px;
+    color: #000;
+    margin: 0 0 12px 10px;
+  }
+
+  .form-group input {
+    width: 100%;
+    height: 78px;
+    border: 2px solid #b400ff;
+    border-radius: 22px;
+    background: rgba(255,255,255,.55);
+    outline: none;
+    padding: 0 28px;
+    font-family: "Inter", Arial, sans-serif;
+    font-size: 24px;
+    font-weight: 300;
+    letter-spacing: -1.2px;
+    color: #111;
+    transition: border-color .25s ease, box-shadow .25s ease, background .25s ease;
+  }
+
+  .form-group input::placeholder {
+    color: rgba(0,0,0,.78);
+  }
+
+  .form-group input:focus {
+    border-color: #8f00ff;
+    background: #fff;
+    box-shadow: 0 0 0 5px rgba(168,0,255,.10);
+  }
+
+  .form-lgpd {
+    margin: 34px 8px 38px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    color: #1b1b1b;
+  }
+
+  .form-lgpd input {
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+    accent-color: #a800ff;
+    margin-top: 2px;
+  }
+
+  .form-lgpd label {
+    font-size: 14px;
+    line-height: 1.25;
+    font-weight: 300;
+    letter-spacing: -.3px;
+  }
+
+  .form-lgpd strong {
+    font-weight: 800;
+  }
+
+  .form-submit {
+    width: 100%;
+    height: 92px;
+    border: none;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #9700ff 0%, #bd00ff 55%, #a000ff 100%);
+    color: #fff;
+    cursor: pointer;
+    font-family: "Inter", Arial, sans-serif;
+    font-size: 31px;
+    line-height: 1;
+    font-weight: 800;
+    letter-spacing: -1.6px;
+    text-transform: uppercase;
+    box-shadow: 0 18px 35px rgba(168,0,255,.25);
+    transition: transform .25s ease, filter .25s ease, opacity .25s ease;
+  }
+
+  .form-submit:hover {
+    transform: translateY(-3px);
+    filter: brightness(1.04);
+  }
+
+  .form-security-note {
+    max-width: 860px;
+    margin: 22px auto 0;
+    text-align: center;
+    font-size: 13px;
+    line-height: 1.35;
+    color: rgba(0,0,0,.62);
+    font-weight: 300;
+  }
+
+  .form-status {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 700;
+    color: #3c0a5d;
+    min-height: 22px;
+  }
+
+  .form-reveal {
+    opacity: 0;
+    transform: translateY(44px);
+    filter: blur(18px);
+    transition:
+      opacity .9s cubic-bezier(.18,.78,.22,1),
+      transform .9s cubic-bezier(.18,.78,.22,1),
+      filter .9s cubic-bezier(.18,.78,.22,1);
+  }
+
+  .form-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+
+  @media (max-width: 900px) {
+    .form-section {
+      min-height: auto;
+      padding: 64px 32px 86px;
+    }
+
+    .form-header {
+      max-width: 360px;
+      margin: 0 auto 48px;
+    }
+
+    .form-eyebrow {
+      font-size: 7px;
+      letter-spacing: 5px;
+      margin-bottom: 16px;
+    }
+
+    .form-title {
+      font-size: 40px;
+      line-height: .88;
+      letter-spacing: -3px;
+      margin-bottom: 20px;
+    }
+
+    .form-subtitle {
+      max-width: 330px;
+      font-size: 15px;
+      line-height: 1.05;
+      letter-spacing: -.85px;
+    }
+
+    .lead-form {
+      max-width: 335px;
+      padding: 54px 22px;
+      border-radius: 34px;
+    }
+
+    .form-group {
+      margin-bottom: 22px;
+    }
+
+    .form-group label {
+      font-size: 15px;
+      letter-spacing: -.6px;
+      margin: 0 0 10px 8px;
+    }
+
+    .form-group input {
+      height: 58px;
+      border-radius: 22px;
+      padding: 0 18px;
+      font-size: 15px;
+      letter-spacing: -.6px;
+    }
+
+    .form-lgpd {
+      margin: 28px 4px 34px;
+      gap: 10px;
+    }
+
+    .form-lgpd label {
+      font-size: 11px;
+      line-height: 1.28;
+    }
+
+    .form-lgpd input {
+      width: 18px;
+      height: 18px;
+      min-width: 18px;
+    }
+
+    .form-submit {
+      height: 61px;
+      font-size: 21px;
+      letter-spacing: -1px;
+    }
+
+    .form-security-note {
+      max-width: 320px;
+      font-size: 10.5px;
+    }
+
+    .form-status {
+      font-size: 13px;
+    }
+  }
+
+  @media (max-width: 390px) {
+    .form-section {
+      padding-left: 28px;
+      padding-right: 28px;
+    }
+
+    .form-title {
+      font-size: 37px;
+    }
+
+    .lead-form {
+      max-width: 320px;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .form-reveal {
+      opacity: 1;
+      transform: none;
+      filter: none;
+      transition: none;
+    }
+  }
+</style>
+
+<section class="form-section" id="cadastro">
+  <div class="form-header form-reveal">
+    <p class="form-eyebrow">Preencha o formulário</p>
+
+    <h2 class="form-title">
+      E esse <span>movimento</span> começa<br>
+      com você.
+    </h2>
+
+    <p class="form-subtitle">
+      Se você acredita que Sarandi e o Paraná merecem uma representante preparada, com história real e compromisso verdadeiro — essa é a sua hora de fazer parte.
+    </p>
+  </div>
+
+  <form 
+    class="lead-form form-reveal"
+    id="leadForm"
+    onsubmit="return false;"
+    autocomplete="on"
+  >
+    <div class="form-group">
+      <label for="nome">Nome completo:</label>
+      <input 
+        type="text"
+        id="nome"
+        name="nome"
+        minlength="3"
+        maxlength="120"
+        autocomplete="name"
+        inputmode="text"
+      >
+    </div>
+
+    <div class="form-group">
+      <label for="telefone">Telefone (com DDD):</label>
+      <input 
+        type="tel"
+        id="telefone"
+        name="telefone"
+        maxlength="15"
+        placeholder="(00) 00000-0000"
+        autocomplete="tel"
+        inputmode="tel"
+      >
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input 
+        type="email"
+        id="email"
+        name="email"
+        maxlength="140"
+        placeholder="Seu melhor email:"
+        autocomplete="email"
+        inputmode="email"
+      >
+    </div>
+
+    <div class="form-lgpd">
+      <input type="checkbox" id="lgpd" name="lgpd_aceite">
+      <label for="lgpd">
+        Estou ciente de que este é um <strong>protótipo visual</strong>. Nenhum dado será armazenado ou enviado nesta etapa.
+      </label>
+    </div>
+
+    <button class="form-submit" type="submit">
+      Enviar o formulário
+    </button>
+
+    <p class="form-status" id="formStatus" aria-live="polite">
+      Protótipo: este formulário ainda não envia dados.
+    </p>
+  </form>
+
+  <p class="form-security-note form-reveal">
+    Este é um formulário demonstrativo. Para uso real, será necessário conectar a página a um sistema seguro de recebimento, armazenamento e tratamento de dados conforme a LGPD.
+  </p>
+</section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const formItems = document.querySelectorAll(".form-reveal");
+
+    if ("IntersectionObserver" in window) {
+      const formObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry, index) {
+          if (entry.isIntersecting) {
+            setTimeout(function () {
+              entry.target.classList.add("is-visible");
+            }, index * 120);
+
+            formObserver.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.14
+      });
+
+      formItems.forEach(function (item) {
+        formObserver.observe(item);
+      });
+    } else {
+      formItems.forEach(function (item) {
+        item.classList.add("is-visible");
+      });
+    }
+
+    const phoneInput = document.getElementById("telefone");
+    const leadForm = document.getElementById("leadForm");
+    const formStatus = document.getElementById("formStatus");
+
+    if (phoneInput) {
+      phoneInput.addEventListener("input", function () {
+        let value = phoneInput.value.replace(/\D/g, "");
+        value = value.slice(0, 11);
+
+        if (value.length <= 10) {
+          value = value.replace(/^(\d{2})(\d{4})(\d{0,4}).*/, "($1) $2-$3");
+        } else {
+          value = value.replace(/^(\d{2})(\d{5})(\d{0,4}).*/, "($1) $2-$3");
+        }
+
+        phoneInput.value = value.trim();
+      });
+    }
+
+    if (leadForm) {
+      leadForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        formStatus.textContent = "Protótipo: os dados não foram enviados nem armazenados.";
+
+        setTimeout(function () {
+          formStatus.textContent = "Protótipo: este formulário ainda não envia dados.";
+        }, 3500);
+      });
+    }
+  });
+</script>
