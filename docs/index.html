@@ -4,22 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Simone Martini | Pré-candidata a Deputada Estadual</title>
-  <meta name="description" content="Simone Martini - Pré-candidata a deputada estadual. Sarandi merece voltar a sonhar." />
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;600;700;800&display=swap" rel="stylesheet">
+  <title>Luiz Nishimori | Deputado Federal</title>
 
   <style>
-    :root {
-      --purple: #a800ff;
-      --purple-2: #bd00ff;
-      --purple-dark: #3c0a5d;
-      --black: #030303;
-      --soft-bg: #f8f1fb;
-    }
-
     * {
       margin: 0;
       padding: 0;
@@ -31,2680 +18,491 @@
     }
 
     body {
-      font-family: "Inter", Arial, sans-serif;
-      color: var(--black);
-      background: #050006;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #ffffff;
+      color: #000000;
+      padding-top: 90px;
       overflow-x: hidden;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
+    body.menu-open {
+      overflow: hidden;
     }
 
-    /* =========================
-       PARTE 1
-    ========================= */
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
 
-    .hero {
-      position: relative;
+    .site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
       width: 100%;
-      min-height: 100vh;
-      overflow: hidden;
+      height: 90px;
+      background: rgba(231, 240, 248, 0.95);
+      border: 1px solid #004b9b;
+      z-index: 999;
+    }
+
+    .header-container {
+      width: 100%;
+      max-width: 1080px;
+      height: 100%;
+      margin: 0 auto;
       display: flex;
       align-items: center;
-      background: var(--soft-bg);
-      isolation: isolate;
+      justify-content: space-between;
+      padding: 0 18px;
     }
 
-    .hero__picture {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 1;
-    }
-
-    .hero__picture img {
-      width: 100%;
-      height: 100%;
+    .logo img {
+      width: 145px;
+      height: auto;
       display: block;
-      object-fit: cover;
-      object-position: center top;
     }
 
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      z-index: 2;
-      pointer-events: none;
-      background: linear-gradient(
-        90deg,
-        rgba(255,255,255,.92) 0%,
-        rgba(255,255,255,.82) 23%,
-        rgba(255,255,255,.58) 38%,
-        rgba(255,255,255,.20) 55%,
-        rgba(255,255,255,0) 72%
-      );
+    .desktop-menu {
+      display: flex;
+      align-items: center;
+      gap: 42px;
     }
 
-    .hero::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      z-index: 3;
-      pointer-events: none;
-      background: linear-gradient(
-        180deg,
-        rgba(255,255,255,.05) 0%,
-        rgba(255,255,255,0) 54%,
-        rgba(0,0,0,.10) 100%
-      );
-    }
-
-    .hero__content {
+    .desktop-menu a {
       position: relative;
-      z-index: 4;
+      font-size: 18px;
+      font-weight: 400;
+      color: #000000;
+      line-height: 1;
+      padding-bottom: 8px;
+      transition: color 0.25s ease, transform 0.25s ease;
+    }
+
+    .desktop-menu a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background: #004b9b;
+      border-radius: 999px;
+      transition: width 0.25s ease;
+    }
+
+    .desktop-menu a:hover {
+      color: #004b9b;
+      transform: translateY(-2px);
+    }
+
+    .desktop-menu a:hover::after {
+      width: 100%;
+    }
+
+    .desktop-menu a.active {
+      font-weight: 700;
+      color: #004b9b;
+    }
+
+    .desktop-menu a.active::after {
+      width: 100%;
+    }
+
+    .menu-mobile {
+      display: none;
+      width: 34px;
+      height: 28px;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      position: relative;
+      z-index: 1001;
+    }
+
+    .menu-mobile span {
+      display: block;
+      width: 34px;
+      height: 4px;
+      background: #004b9b;
+      border-radius: 6px;
+      margin-bottom: 6px;
+      transition: transform 0.25s ease, opacity 0.25s ease;
+    }
+
+    .menu-mobile span:last-child {
+      margin-bottom: 0;
+    }
+
+    .menu-mobile.active span:nth-child(1) {
+      transform: translateY(10px) rotate(45deg);
+    }
+
+    .menu-mobile.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .menu-mobile.active span:nth-child(3) {
+      transform: translateY(-10px) rotate(-45deg);
+    }
+
+    .mobile-menu-panel {
+      display: none;
+    }
+
+    .hero {
+      width: 100%;
+      min-height: calc(100vh - 90px);
+      background-image:
+        linear-gradient(
+          90deg,
+          rgba(255, 255, 255, 0.98) 0%,
+          rgba(255, 255, 255, 0.95) 23%,
+          rgba(255, 255, 255, 0.45) 43%,
+          rgba(255, 255, 255, 0.02) 62%
+        ),
+        url("assets/img/hero-desktop.webp");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center top;
+      border-bottom-right-radius: 34px;
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-content {
       width: 100%;
       max-width: 1280px;
-      margin: 0;
-      padding-left: clamp(56px, 6vw, 100px);
-      padding-right: 24px;
+      margin: 0 auto;
+      padding-left: 88px;
+      padding-top: 10px;
+      position: relative;
+      z-index: 2;
     }
 
-    .hero__eyebrow {
-      font-size: 14px;
-      line-height: 1;
-      font-weight: 700;
-      letter-spacing: 7px;
-      text-transform: uppercase;
-      margin-bottom: 24px;
-      color: #000;
+    .hero-text {
+      width: 465px;
     }
 
-    .hero__title {
-      max-width: 640px;
-      font-size: 80px;
-      line-height: .92;
-      font-weight: 600;
-      letter-spacing: -6px;
-      margin-bottom: 23px;
-      color: #000;
+    .hero h1 {
+      font-size: 58px;
+      line-height: 0.82;
+      font-weight: 900;
+      letter-spacing: -3px;
+      color: #004b9b;
+      margin-bottom: 20px;
     }
 
-    .hero__title span {
-      color: var(--purple);
+    .hero h1 span {
+      color: #10a13b;
     }
 
-    .hero__subtitle {
-      max-width: 565px;
-      font-size: 25px;
-      line-height: 1.04;
-      font-weight: 300;
-      letter-spacing: -1.55px;
-      margin-bottom: 26px;
-      color: #000;
+    .hero p {
+      font-size: 24px;
+      line-height: 0.92;
+      font-weight: 400;
+      color: #000000;
+      max-width: 450px;
+      margin-bottom: 38px;
     }
 
-    .hero__actions {
-      width: 515px;
-      max-width: calc(100vw - 48px);
+    .hero-buttons {
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 12px;
+      width: 465px;
     }
 
     .btn {
       width: 100%;
-      min-height: 86px;
+      height: 93px;
       border-radius: 999px;
       display: flex;
       align-items: center;
       justify-content: center;
-      text-align: center;
-      font-size: 35px;
+      font-size: 29px;
+      font-weight: 800;
       line-height: 1;
-      font-weight: 600;
-      letter-spacing: -2.2px;
-      transition: transform .25s ease, filter .25s ease;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
     }
 
     .btn:hover {
       transform: translateY(-3px);
-      filter: brightness(1.04);
+      box-shadow: 0 12px 28px rgba(0, 75, 155, 0.18);
     }
 
-    .btn--primary {
-      color: #fff;
-      background: linear-gradient(135deg, #9800ff 0%, var(--purple-2) 54%, #9c00ff 100%);
-      box-shadow: 0 18px 45px rgba(168,0,255,.26);
+    .btn-primary {
+      background: #10a13b;
+      color: #ffffff;
+      border: 1px solid #10a13b;
     }
 
-    .btn--secondary {
-      color: var(--purple-dark);
-      background: rgba(255,255,255,.46);
-      border: 1.7px solid rgba(255,255,255,.95);
-      box-shadow: inset 0 0 24px rgba(255,255,255,.38);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
+    .btn-primary:hover {
+      background: #0c8d33;
     }
 
-    .reveal {
-      opacity: 0;
-      transform: translateY(34px);
-      filter: blur(18px);
-      animation: revealCascade .9s cubic-bezier(.18,.78,.22,1) forwards;
+    .btn-secondary {
+      background: #ffffff;
+      color: #004b9b;
+      border: 1.5px solid #004b9b;
     }
 
-    .reveal-1 { animation-delay: .10s; }
-    .reveal-2 { animation-delay: .26s; }
-    .reveal-3 { animation-delay: .42s; }
-    .reveal-4 { animation-delay: .58s; }
-
-    @keyframes revealCascade {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-        filter: blur(0);
-      }
+    .btn-secondary:hover {
+      background: #004b9b;
+      color: #ffffff;
     }
 
-    /* =========================
-       PARTE 2 E 3
-    ========================= */
-
-    .simone-about {
-      width: 100%;
-      background: #050006;
-      padding: 0;
-      overflow: hidden;
-      font-family: "Inter", Arial, sans-serif;
-    }
-
-    .simone-about-card {
-      width: 100%;
-      min-height: 100vh;
-      position: relative;
-      overflow: hidden;
-      color: #fff;
-      border-radius: 0 0 72px 72px;
-      padding: 92px 78px 90px;
-      background:
-        radial-gradient(circle at 50% 0%, rgba(255,255,255,.22) 0%, rgba(255,255,255,0) 34%),
-        linear-gradient(180deg, #c65cff 0%, #b000ff 50%, #9b00ff 100%);
-    }
-
-    .simone-about-card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      opacity: .16;
-      pointer-events: none;
-      background-image: radial-gradient(rgba(255,255,255,.52) 1px, transparent 1px);
-      background-size: 3px 3px;
-      mix-blend-mode: overlay;
-    }
-
-    .simone-about-card::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      background:
-        radial-gradient(circle at 50% 35%, rgba(255,255,255,.12), transparent 38%),
-        linear-gradient(180deg, rgba(255,255,255,.04), rgba(0,0,0,.05));
-    }
-
-    .simone-about-intro,
-    .simone-trajectory {
-      position: relative;
-      z-index: 2;
-    }
-
-    .simone-about-intro {
-      max-width: 1100px;
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    .simone-eyebrow {
-      font-size: 14px;
-      line-height: 1;
-      font-weight: 700;
-      letter-spacing: 8px;
-      text-transform: uppercase;
-      color: rgba(255,255,255,.92);
-      margin-bottom: 18px;
-    }
-
-    .simone-about-title {
-      max-width: 1080px;
-      margin: 0 auto 38px;
-      color: #fff;
-      font-size: clamp(58px, 5.2vw, 82px);
-      line-height: .88;
-      font-weight: 600;
-      letter-spacing: -5.4px;
-    }
-
-    .simone-about-title span {
-      display: block;
-      color: #3c0a5d;
-    }
-
-    .simone-about-subtitle {
-      max-width: 990px;
-      margin: 0 auto;
-      color: rgba(255,255,255,.94);
-      font-size: 24px;
-      line-height: 1.06;
-      font-weight: 300;
-      letter-spacing: -1.3px;
-    }
-
-    .simone-trajectory {
-      margin-top: 185px;
-      display: grid;
-      grid-template-columns: minmax(0, 1.08fr) minmax(380px, .92fr);
-      align-items: center;
-      gap: 50px;
-    }
-
-    .simone-trajectory-text {
-      max-width: 650px;
-    }
-
-    .simone-trajectory-title {
-      color: #fff;
-      font-size: clamp(58px, 5vw, 82px);
-      line-height: .88;
-      font-weight: 600;
-      letter-spacing: -5.4px;
-      margin-bottom: 28px;
-    }
-
-    .simone-trajectory-description {
-      max-width: 630px;
-      color: rgba(255,255,255,.95);
-      font-size: 24px;
-      line-height: 1.06;
-      font-weight: 300;
-      letter-spacing: -1.3px;
-    }
-
-    .simone-trajectory-description strong {
-      font-weight: 800;
-      color: #fff;
-    }
-
-    .simone-photos {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .simone-photos img {
-      width: min(100%, 540px);
-      height: auto;
-      display: block;
-      filter: drop-shadow(0 30px 30px rgba(0,0,0,.32));
-      transform: rotate(-2deg);
-    }
-
-    .simone-mobile-label {
+    .mobile-hero-image {
       display: none;
     }
 
-    .simone-reveal {
-      opacity: 0;
-      transform: translateY(46px);
-      filter: blur(18px);
-      transition:
-        opacity .9s cubic-bezier(.18,.78,.22,1),
-        transform .9s cubic-bezier(.18,.78,.22,1),
-        filter .9s cubic-bezier(.18,.78,.22,1);
-    }
-
-    .simone-reveal.is-visible {
-      opacity: 1;
-      transform: translateY(0);
-      filter: blur(0);
-    }
-
-    /* =========================
-       MOBILE
-    ========================= */
-
-    @media (max-width: 900px) {
-      .hero {
-        min-height: 100svh;
-        display: block;
-        overflow: hidden;
+    @media (max-width: 1023px) {
+      body {
+        padding-top: 76px;
       }
 
-      .hero__picture {
-        position: relative;
-        inset: auto;
-        z-index: 1;
-        display: block;
-        width: 100%;
-        height: 54svh;
-        min-height: 390px;
-        max-height: 530px;
-        overflow: hidden;
+      .site-header {
+        height: 76px;
+        background: rgba(231, 240, 248, 0.98);
       }
 
-      .hero__picture::after {
-        content: "";
-        position: absolute;
-        left: 0;
-        right: 0;
-        bottom: -1px;
-        height: 145px;
-        pointer-events: none;
-        background: linear-gradient(
-          180deg,
-          rgba(248,241,251,0) 0%,
-          rgba(248,241,251,.70) 58%,
-          #f8f1fb 100%
-        );
+      .header-container {
+        padding: 0 26px;
       }
 
-      .hero__picture img {
-        object-fit: cover;
-        object-position: top center;
+      .logo img {
+        width: 150px;
       }
 
-      .hero::before,
-      .hero::after {
+      .desktop-menu {
         display: none;
       }
 
-      .hero__content {
-        position: relative;
-        z-index: 2;
+      .menu-mobile {
+        display: block;
+      }
+
+      .mobile-menu-panel {
+        position: fixed;
+        top: 76px;
+        left: 0;
         width: 100%;
-        max-width: none;
-        margin: 0;
-        padding: 22px 26px 56px;
-        text-align: center;
+        background: rgba(231, 240, 248, 0.98);
+        border-bottom: 1px solid #004b9b;
+        padding: 26px;
         display: flex;
         flex-direction: column;
-        align-items: center;
-        background: linear-gradient(180deg, #f8f1fb 0%, #fbf6ff 100%);
+        gap: 18px;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-16px);
+        pointer-events: none;
+        transition: opacity 0.25s ease, visibility 0.25s ease, transform 0.25s ease;
+        z-index: 998;
       }
 
-      .hero__eyebrow {
-        font-size: 7px;
-        line-height: 1;
-        letter-spacing: 5px;
-        font-weight: 700;
-        margin-bottom: 18px;
+      .mobile-menu-panel.active {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+        pointer-events: auto;
       }
 
-      .hero__title {
-        max-width: 360px;
-        font-size: 40px;
-        line-height: .95;
-        letter-spacing: -3.25px;
-        margin-bottom: 15px;
-      }
-
-      .hero__subtitle {
-        max-width: 335px;
-        font-size: 15px;
-        line-height: 1.08;
-        letter-spacing: -.9px;
-        margin-bottom: 24px;
-      }
-
-      .hero__actions {
+      .mobile-menu-panel a {
         width: 100%;
-        max-width: 350px;
-        gap: 12px;
+        padding: 16px 18px;
+        border-radius: 16px;
+        background: #ffffff;
+        border: 1px solid rgba(0, 75, 155, 0.18);
+        color: #004b9b;
+        font-size: 18px;
+        font-weight: 700;
+        box-shadow: 0 8px 18px rgba(0, 75, 155, 0.08);
       }
 
-      .btn {
-        min-height: 70px;
-        font-size: 25px;
-        letter-spacing: -1.55px;
+      .mobile-menu-panel a:active {
+        transform: scale(0.98);
       }
 
-      .btn--secondary {
-        border: 2px solid var(--purple-dark);
-        background: rgba(255,255,255,.45);
-      }
-
-      .simone-about-card {
+      .hero {
         min-height: auto;
-        border-radius: 0 0 42px 42px;
-        padding: 46px 38px 54px;
-        background:
-          radial-gradient(circle at 50% 0%, rgba(255,255,255,.22) 0%, rgba(255,255,255,0) 38%),
-          linear-gradient(180deg, #c85cff 0%, #ad00ff 54%, #9b00ff 100%);
+        display: block;
+        background: #ffffff;
+        border-bottom-right-radius: 0;
       }
 
-      .simone-about-intro {
-        text-align: left;
-        max-width: 100%;
+      .mobile-hero-image {
+        display: block;
+        width: 100%;
+        height: 445px;
+        background-image:
+          linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0) 55%,
+            rgba(255, 255, 255, 1) 100%
+          ),
+          url("assets/img/hero-mobile.webp");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center top;
       }
 
-      .simone-eyebrow {
-        font-size: 7px;
-        letter-spacing: 5px;
+      .hero-content {
+        padding: 0 26px 42px;
+        margin-top: -12px;
+      }
+
+      .hero-text {
+        width: 100%;
+        text-align: center;
+      }
+
+      .hero h1 {
+        font-size: 40px;
+        line-height: 0.82;
+        letter-spacing: -2px;
         margin-bottom: 16px;
       }
 
-      .simone-about-title {
-        font-size: 40px;
-        line-height: .92;
-        letter-spacing: -3.1px;
-        max-width: 340px;
-        margin: 0 0 150px;
+      .hero p {
+        font-size: 14px;
+        line-height: 0.9;
+        max-width: 270px;
+        margin: 0 auto 22px;
       }
 
-      .simone-about-title span {
-        display: inline;
-        color: #fff;
-      }
-
-      .simone-about-subtitle {
-        display: none;
-      }
-
-      .simone-trajectory {
-        margin-top: 0;
-        display: flex;
-        flex-direction: column;
-        gap: 36px;
-      }
-
-      .simone-mobile-label {
-        display: block;
-        position: relative;
-        z-index: 2;
-        text-align: center;
-        margin-bottom: 42px;
-      }
-
-      .simone-desktop-label {
-        display: none;
-      }
-
-      .simone-photos {
+      .hero-buttons {
         width: 100%;
-      }
-
-      .simone-photos img {
-        width: min(100%, 340px);
-        transform: none;
-        filter: drop-shadow(0 24px 22px rgba(0,0,0,.28));
-      }
-
-      .simone-trajectory-text {
-        max-width: 100%;
-      }
-
-      .simone-trajectory-title {
-        font-size: 40px;
-        line-height: .92;
-        letter-spacing: -3.1px;
-        margin-bottom: 26px;
-      }
-
-      .simone-trajectory-description {
-        max-width: 100%;
-        font-size: 15px;
-        line-height: 1.05;
-        letter-spacing: -.9px;
-      }
-    }
-
-    @media (max-width: 390px) {
-      .hero__picture {
-        height: 50svh;
-        min-height: 360px;
-      }
-
-      .hero__content {
-        padding-left: 22px;
-        padding-right: 22px;
-        padding-bottom: 44px;
-      }
-
-      .hero__title {
-        font-size: 38px;
-      }
-
-      .hero__subtitle {
-        font-size: 14.5px;
+        gap: 8px;
       }
 
       .btn {
-        min-height: 66px;
-        font-size: 23px;
+        height: 68px;
+        font-size: 26px;
+      }
+    }
+
+    @media (min-width: 1024px) and (max-width: 1180px) {
+      .hero-content {
+        padding-left: 55px;
       }
 
-      .simone-about-card {
-        padding: 42px 34px 50px;
+      .hero-text,
+      .hero-buttons {
+        width: 430px;
       }
 
-      .simone-about-title,
-      .simone-trajectory-title {
-        font-size: 37px;
+      .hero h1 {
+        font-size: 52px;
       }
 
-      .simone-trajectory-description {
-        font-size: 14.5px;
+      .hero p {
+        font-size: 22px;
       }
 
-      .simone-photos img {
-        width: min(100%, 315px);
+      .btn {
+        height: 84px;
+        font-size: 26px;
       }
     }
   </style>
 </head>
 
 <body>
-  <main>
 
-    <!-- PARTE 1 -->
-    <section class="hero" id="inicio" aria-label="Primeira seção Simone Martini">
-      <picture class="hero__picture" aria-hidden="true">
-        <source media="(max-width: 900px)" srcset="./assets/img/simone-mobile.webp">
-        <img src="./assets/img/simone-desktop.webp" alt="">
-      </picture>
+  <header class="site-header">
+    <div class="header-container">
 
-      <div class="hero__content">
-        <p class="hero__eyebrow reveal reveal-1">Pré-candidata a deputada estadual</p>
+      <a href="#inicio" class="logo" aria-label="Luiz Nishimori">
+        <img src="assets/img/logo-nishimori.webp" alt="Luiz Nishimori Deputado Federal" />
+      </a>
 
-        <h1 class="hero__title reveal reveal-2">
-          <span>Sarandi</span> merece<br>
-          voltar a sonhar!
-        </h1>
+      <nav class="desktop-menu" aria-label="Menu principal">
+        <a href="#atuacao" class="active">Atuação</a>
+        <a href="#emendas">Emendas</a>
+        <a href="#propostas">Propostas</a>
+        <a href="#entregas">Entregas por município</a>
+        <a href="#noticias">Notícias</a>
+      </nav>
 
-        <p class="hero__subtitle reveal reveal-3">
-          Simone Martini construiu sua trajetória entre o cuidado com pessoas, experiência pública e compromisso verdadeiro com Sarandi e o Paraná.
-        </p>
+      <button class="menu-mobile" type="button" aria-label="Abrir menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
 
-        <div class="hero__actions reveal reveal-4">
-          <a class="btn btn--primary" href="#propostas">Conheça minhas propostas</a>
-          <a class="btn btn--secondary" href="#sobre">Faça parte dessa jornada</a>
-        </div>
-      </div>
-    </section>
+    </div>
 
-    <!-- PARTE 2 E 3 -->
-    <section class="simone-about" id="sobre">
-      <div class="simone-about-card">
+    <nav class="mobile-menu-panel" aria-label="Menu mobile">
+      <a href="#atuacao">Atuação</a>
+      <a href="#emendas">Emendas</a>
+      <a href="#propostas">Propostas</a>
+      <a href="#entregas">Entregas por município</a>
+      <a href="#noticias">Notícias</a>
+    </nav>
+  </header>
 
-        <div class="simone-about-intro simone-reveal">
-          <p class="simone-eyebrow">Quem é Simone Martini</p>
+  <main id="inicio">
 
-          <h2 class="simone-about-title">
-            Advogada. Ex-Procuradora-Geral. Candidata que chegou a
-            <span>12.380 votos em Sarandi.</span>
-          </h2>
+    <section class="hero">
 
-          <p class="simone-about-subtitle">
-            Não escolheu a política por acaso. Cresceu vendo de perto o peso de decidir por uma cidade inteira — e aprendeu que liderar é responsabilidade, não status. Sua história está em Sarandi. E é por isso que não aceita ver a cidade parar.
+      <div class="mobile-hero-image"></div>
+
+      <div class="hero-content">
+        <div class="hero-text">
+
+          <h1>
+            Uma trajetória<br>
+            de <span>resultado</span> pelo<br>
+            Paraná.
+          </h1>
+
+          <p>
+            Deputado presente, municipalista e comprometido com o desenvolvimento do Paraná.
           </p>
-        </div>
 
-        <p class="simone-eyebrow simone-mobile-label simone-reveal">Trajetória e preparo</p>
+          <div class="hero-buttons">
+            <a href="#atuacao" class="btn btn-primary">
+              Conheça a atuação
+            </a>
 
-        <div class="simone-trajectory">
-          <div class="simone-trajectory-text simone-reveal">
-            <p class="simone-eyebrow simone-desktop-label">Trajetória e preparo</p>
-
-            <h2 class="simone-trajectory-title">
-              Querer ajudar não basta. É preciso saber como fazer.
-            </h2>
-
-            <p class="simone-trajectory-description">
-              Estudou liderança e gestão na <strong>Australian Pacific College, em Sydney.</strong>
-              Se certificou em Educação e Cuidados Infantis na 4LIFE College, também na Austrália.
-              Atuou como <strong>Procuradora-Geral e no Tribunal de Justiça do Paraná.</strong>
-              E mesmo sem cargo público, já articulou mais de <strong>R$ 600 mil em recursos para saúde, educação e entidades de Sarandi e região.</strong>
-              Resultado não vem de discurso. Vem de articulação, insistência e compromisso.
-            </p>
+            <a href="#gabinete" class="btn btn-secondary">
+              Fale com o gabinete
+            </a>
           </div>
 
-          <div class="simone-photos simone-reveal">
-            <img src="./assets/img/PHOTOS 1.webp" alt="Fotos da trajetória de Simone Martini">
-          </div>
         </div>
-
       </div>
+
     </section>
 
   </main>
 
   <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const items = document.querySelectorAll(".simone-reveal");
+    const menuButton = document.querySelector(".menu-mobile");
+    const mobileMenu = document.querySelector(".mobile-menu-panel");
+    const body = document.body;
+    const mobileLinks = document.querySelectorAll(".mobile-menu-panel a");
 
-      if (!("IntersectionObserver" in window)) {
-        items.forEach(function (item) {
-          item.classList.add("is-visible");
-        });
-        return;
-      }
+    menuButton.addEventListener("click", function () {
+      const isOpen = mobileMenu.classList.toggle("active");
 
-      const observer = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry, index) {
-          if (entry.isIntersecting) {
-            setTimeout(function () {
-              entry.target.classList.add("is-visible");
-            }, index * 130);
+      menuButton.classList.toggle("active", isOpen);
+      body.classList.toggle("menu-open", isOpen);
+      menuButton.setAttribute("aria-expanded", isOpen ? "true" : "false");
+      menuButton.setAttribute("aria-label", isOpen ? "Fechar menu" : "Abrir menu");
+    });
 
-            observer.unobserve(entry.target);
-          }
-        });
-      }, {
-        threshold: 0.12
-      });
-
-      items.forEach(function (item) {
-        observer.observe(item);
+    mobileLinks.forEach(function (link) {
+      link.addEventListener("click", function () {
+        mobileMenu.classList.remove("active");
+        menuButton.classList.remove("active");
+        body.classList.remove("menu-open");
+        menuButton.setAttribute("aria-expanded", "false");
+        menuButton.setAttribute("aria-label", "Abrir menu");
       });
     });
   </script>
+
 </body>
 </html>
-<!-- PARTE 4 - PROJETOS E CAUSAS -->
-<style>
-  .projects-section {
-    width: 100%;
-    min-height: 100vh;
-    background: #ffffff;
-    font-family: "Inter", Arial, sans-serif;
-    color: #050505;
-    padding: 96px 64px 120px;
-    overflow: hidden;
-  }
-
-  .projects-section * {
-    box-sizing: border-box;
-  }
-
-  .projects-header {
-    width: 100%;
-    max-width: 980px;
-    margin: 0 auto 78px;
-    text-align: center;
-  }
-
-  .projects-eyebrow {
-    font-size: 14px;
-    line-height: 1;
-    font-weight: 800;
-    letter-spacing: 8px;
-    text-transform: uppercase;
-    margin-bottom: 20px;
-    color: #111;
-  }
-
-  .projects-title {
-    font-size: clamp(62px, 6vw, 86px);
-    line-height: .88;
-    font-weight: 600;
-    letter-spacing: -6px;
-    color: #000;
-    margin-bottom: 32px;
-  }
-
-  .projects-title span {
-    color: #a800ff;
-  }
-
-  .projects-subtitle {
-    font-size: 25px;
-    line-height: 1.05;
-    font-weight: 300;
-    letter-spacing: -1.4px;
-    color: #000;
-  }
-
-  .projects-subtitle strong {
-    font-weight: 800;
-  }
-
-  .projects-grid {
-    width: 100%;
-    max-width: 1160px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 14px;
-  }
-
-  .project-card {
-    position: relative;
-    min-height: 305px;
-    border: 2px solid #b400ff;
-    border-radius: 34px;
-    background: linear-gradient(180deg, #ffffff 0%, #f7f7f7 45%, #dfdfdf 100%);
-    box-shadow: 0 24px 35px rgba(0, 0, 0, .16);
-    padding: 82px 28px 32px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-  }
-
-  .project-icon {
-    position: absolute;
-    top: -36px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 86px;
-    height: 86px;
-    border-radius: 999px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: radial-gradient(circle at 38% 26%, #d763ff 0%, #b900ff 48%, #9700e8 100%);
-    box-shadow:
-      0 0 0 8px rgba(168, 0, 255, .08),
-      0 13px 22px rgba(168, 0, 255, .46),
-      0 0 28px rgba(168, 0, 255, .58);
-  }
-
-  .project-icon img {
-    width: 52px;
-    height: 52px;
-    object-fit: contain;
-    display: block;
-  }
-
-  .project-content {
-    width: 100%;
-  }
-
-  .project-title {
-    font-size: 34px;
-    line-height: .82;
-    font-weight: 600;
-    letter-spacing: -2.7px;
-    color: #000;
-    margin-bottom: 15px;
-  }
-
-  .project-title span {
-    color: #a800ff;
-  }
-
-  .project-description {
-    font-size: 15px;
-    line-height: 1.02;
-    font-weight: 300;
-    letter-spacing: -.7px;
-    color: #000;
-    max-width: 190px;
-    margin: 0 auto;
-  }
-
-  .project-reveal {
-    opacity: 0;
-    transform: translateY(42px);
-    filter: blur(16px);
-    transition:
-      opacity .85s cubic-bezier(.18,.78,.22,1),
-      transform .85s cubic-bezier(.18,.78,.22,1),
-      filter .85s cubic-bezier(.18,.78,.22,1);
-  }
-
-  .project-reveal.is-visible {
-    opacity: 1;
-    transform: translateY(0);
-    filter: blur(0);
-  }
-
-  @media (max-width: 900px) {
-    .projects-section {
-      min-height: auto;
-      padding: 68px 40px 86px;
-    }
-
-    .projects-header {
-      max-width: 360px;
-      margin: 0 auto 78px;
-    }
-
-    .projects-eyebrow {
-      display: none;
-    }
-
-    .projects-title {
-      font-size: 40px;
-      line-height: .88;
-      letter-spacing: -3px;
-      margin-bottom: 20px;
-    }
-
-    .projects-subtitle {
-      font-size: 15px;
-      line-height: 1.05;
-      letter-spacing: -.8px;
-      max-width: 310px;
-      margin: 0 auto;
-    }
-
-    .projects-grid {
-      max-width: 330px;
-      display: flex;
-      flex-direction: column;
-      gap: 72px;
-      align-items: center;
-    }
-
-    .project-card {
-      width: 100%;
-      min-height: 294px;
-      border-radius: 28px;
-      padding: 76px 24px 32px;
-      box-shadow: 0 24px 35px rgba(0, 0, 0, .18);
-    }
-
-    .project-icon {
-      top: -34px;
-      width: 78px;
-      height: 78px;
-    }
-
-    .project-icon img {
-      width: 47px;
-      height: 47px;
-    }
-
-    .project-title {
-      font-size: 34px;
-      line-height: .82;
-      letter-spacing: -2.6px;
-      margin-bottom: 17px;
-    }
-
-    .project-description {
-      font-size: 15px;
-      line-height: 1.03;
-      letter-spacing: -.8px;
-      max-width: 230px;
-    }
-  }
-
-  @media (max-width: 390px) {
-    .projects-section {
-      padding-left: 34px;
-      padding-right: 34px;
-    }
-
-    .projects-title {
-      font-size: 37px;
-    }
-
-    .project-title {
-      font-size: 31px;
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .project-reveal {
-      opacity: 1;
-      transform: none;
-      filter: none;
-      transition: none;
-    }
-  }
-</style>
-
-<section class="projects-section" id="projetos">
-  <div class="projects-header project-reveal">
-    <p class="projects-eyebrow">Projetos e causas</p>
-
-    <h2 class="projects-title">
-      Um <span>olhar atento</span> para<br>
-      quem mais precisa.
-    </h2>
-
-    <p class="projects-subtitle">
-      Projetos sociais não são <strong>números</strong> — são <strong>vidas transformadas.</strong>
-    </p>
-  </div>
-
-  <div class="projects-grid">
-    <article class="project-card project-reveal">
-      <div class="project-icon">
-        <img src="./assets/img/ICONE SAUDE.png" alt="">
-      </div>
-
-      <div class="project-content">
-        <h3 class="project-title">
-          <span>Saúde Visual</span><br>
-          nas Escolas
-        </h3>
-
-        <p class="project-description">
-          Acesso à saúde visual para quem mais precisa.
-        </p>
-      </div>
-    </article>
-
-    <article class="project-card project-reveal">
-      <div class="project-icon">
-        <img src="./assets/img/ICONE COMBATE.png" alt="">
-      </div>
-
-      <div class="project-content">
-        <h3 class="project-title">
-          Combate ao<br>
-          <span>assédio</span> e à<br>
-          <span>violência doméstica</span>
-        </h3>
-
-        <p class="project-description">
-          proteção concreta para mulheres e famílias
-        </p>
-      </div>
-    </article>
-
-    <article class="project-card project-reveal">
-      <div class="project-icon">
-        <img src="./assets/img/ICONE JURIDICO.png" alt="">
-      </div>
-
-      <div class="project-content">
-        <h3 class="project-title">
-          <span>Apoio jurídico</span> a<br>
-          famílias carentes
-        </h3>
-
-        <p class="project-description">
-          porque direito não pode ser privilégio de quem pode pagar
-        </p>
-      </div>
-    </article>
-
-    <article class="project-card project-reveal">
-      <div class="project-icon">
-        <img src="./assets/img/ICONE PODCAST.png" alt="">
-      </div>
-
-      <div class="project-content">
-        <h3 class="project-title">
-          Podcast<br>
-          "<span>Unindo Propósitos</span>"
-        </h3>
-
-        <p class="project-description">
-          conversas que conectam pessoas e causas
-        </p>
-      </div>
-    </article>
-  </div>
-</section>
-
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const projectItems = document.querySelectorAll(".project-reveal");
-
-    if (!("IntersectionObserver" in window)) {
-      projectItems.forEach(function (item) {
-        item.classList.add("is-visible");
-      });
-      return;
-    }
-
-    const projectObserver = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry, index) {
-        if (entry.isIntersecting) {
-          setTimeout(function () {
-            entry.target.classList.add("is-visible");
-          }, index * 120);
-
-          projectObserver.unobserve(entry.target);
-        }
-      });
-    }, {
-      threshold: 0.14
-    });
-
-    projectItems.forEach(function (item) {
-      projectObserver.observe(item);
-    });
-  });
-</script>
-<!-- PARTE 5 - NOVO DESAFIO PELO PARANÁ -->
-<style>
-  .challenge-section {
-    width: 100%;
-    min-height: 100vh;
-    position: relative;
-    overflow: hidden;
-    background: #ffffff;
-    font-family: "Inter", Arial, sans-serif;
-    color: #050505;
-    display: flex;
-    align-items: center;
-  }
-
-  .challenge-section * {
-    box-sizing: border-box;
-  }
-
-  .challenge-picture {
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-  }
-
-  .challenge-picture img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center right;
-    display: block;
-  }
-
-  .challenge-section::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    z-index: 2;
-    pointer-events: none;
-    background:
-      linear-gradient(
-        90deg,
-        #ffffff 0%,
-        rgba(255,255,255,.98) 20%,
-        rgba(255,255,255,.86) 34%,
-        rgba(255,255,255,.42) 50%,
-        rgba(255,255,255,0) 67%
-      );
-  }
-
-  .challenge-section::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    z-index: 3;
-    pointer-events: none;
-    background:
-      radial-gradient(circle at 48% 60%, rgba(255,255,255,.42), transparent 28%),
-      linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.12));
-  }
-
-  .challenge-content {
-    position: relative;
-    z-index: 4;
-    width: 100%;
-    max-width: 1280px;
-    padding-left: clamp(64px, 7vw, 102px);
-    padding-right: 24px;
-  }
-
-  .challenge-eyebrow {
-    font-size: 18px;
-    line-height: 1;
-    font-weight: 800;
-    letter-spacing: 9px;
-    text-transform: uppercase;
-    color: #a800ff;
-    margin-bottom: 42px;
-  }
-
-  .challenge-title {
-    max-width: 620px;
-    font-size: clamp(74px, 6.4vw, 98px);
-    line-height: .86;
-    font-weight: 600;
-    letter-spacing: -7px;
-    color: #000;
-    margin-bottom: 34px;
-  }
-
-  .challenge-title span {
-    color: #a800ff;
-  }
-
-  .challenge-text {
-    max-width: 520px;
-    font-size: 30px;
-    line-height: 1.05;
-    font-weight: 300;
-    letter-spacing: -1.9px;
-    color: #000;
-  }
-
-  .challenge-reveal {
-    opacity: 0;
-    transform: translateY(44px);
-    filter: blur(18px);
-    transition:
-      opacity .9s cubic-bezier(.18,.78,.22,1),
-      transform .9s cubic-bezier(.18,.78,.22,1),
-      filter .9s cubic-bezier(.18,.78,.22,1);
-  }
-
-  .challenge-reveal.is-visible {
-    opacity: 1;
-    transform: translateY(0);
-    filter: blur(0);
-  }
-
-  @media (max-width: 900px) {
-    .challenge-section {
-      min-height: auto;
-      display: block;
-      background: #ffffff;
-      padding-bottom: 68px;
-    }
-
-    .challenge-picture {
-      position: relative;
-      inset: auto;
-      z-index: 1;
-      width: 100%;
-      height: 58svh;
-      min-height: 445px;
-      max-height: 620px;
-      overflow: hidden;
-      display: block;
-    }
-
-    .challenge-picture::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: -1px;
-      height: 190px;
-      pointer-events: none;
-      background: linear-gradient(
-        180deg,
-        rgba(255,255,255,0) 0%,
-        rgba(255,255,255,.72) 55%,
-        #ffffff 100%
-      );
-    }
-
-    .challenge-picture img {
-      object-fit: cover;
-      object-position: top center;
-    }
-
-    .challenge-section::before,
-    .challenge-section::after {
-      display: none;
-    }
-
-    .challenge-content {
-      position: relative;
-      z-index: 2;
-      width: 100%;
-      padding: 26px 28px 0;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      background: #ffffff;
-    }
-
-    .challenge-eyebrow {
-      font-size: 7px;
-      letter-spacing: 5px;
-      margin-bottom: 18px;
-    }
-
-    .challenge-title {
-      max-width: 340px;
-      font-size: 40px;
-      line-height: .88;
-      letter-spacing: -3.2px;
-      margin-bottom: 22px;
-    }
-
-    .challenge-text {
-      max-width: 355px;
-      font-size: 15px;
-      line-height: 1.05;
-      letter-spacing: -.9px;
-    }
-  }
-
-  @media (max-width: 390px) {
-    .challenge-picture {
-      height: 54svh;
-      min-height: 405px;
-    }
-
-    .challenge-content {
-      padding-left: 22px;
-      padding-right: 22px;
-    }
-
-    .challenge-title {
-      font-size: 37px;
-      max-width: 315px;
-    }
-
-    .challenge-text {
-      font-size: 14.5px;
-      max-width: 320px;
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .challenge-reveal {
-      opacity: 1;
-      transform: none;
-      filter: none;
-      transition: none;
-    }
-  }
-</style>
-
-<section class="challenge-section" id="desafio">
-  <picture class="challenge-picture" aria-hidden="true">
-    <source media="(max-width: 900px)" srcset="./assets/img//SIMONE NA CAMARA MOBILE.webp">
-    <img src="./assets/img/SIMONE NA CAMARA.webp" alt="">
-  </picture>
-
-  <div class="challenge-content">
-    <p class="challenge-eyebrow challenge-reveal">Por que deputada estadual?</p>
-
-    <h2 class="challenge-title challenge-reveal">
-      Um <span>novo desafio</span> pelo Paraná.
-    </h2>
-
-    <p class="challenge-text challenge-reveal">
-      Cada recurso conquistado, cada família atendida, cada projeto realizado foi preparação para esse momento.
-      <br>
-      A Assembleia Legislativa é onde o futuro de cidades como Sarandi é decidido, e a candidatura a Deputada Estadual é a continuidade natural de uma trajetória construída com propósito.
-    </p>
-  </div>
-</section>
-
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const challengeItems = document.querySelectorAll(".challenge-reveal");
-
-    if (!("IntersectionObserver" in window)) {
-      challengeItems.forEach(function (item) {
-        item.classList.add("is-visible");
-      });
-      return;
-    }
-
-    const challengeObserver = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry, index) {
-        if (entry.isIntersecting) {
-          setTimeout(function () {
-            entry.target.classList.add("is-visible");
-          }, index * 130);
-
-          challengeObserver.unobserve(entry.target);
-        }
-      });
-    }, {
-      threshold: 0.16
-    });
-
-    challengeItems.forEach(function (item) {
-      challengeObserver.observe(item);
-    });
-  });
-</script>
-<!-- PARTE 6 - FORMULÁRIO / PROTÓTIPO -->
-<style>
-  .form-section {
-    width: 100%;
-    min-height: 100vh;
-    background: #ffffff;
-    font-family: "Inter", Arial, sans-serif;
-    color: #050505;
-    padding: 104px 70px 120px;
-    overflow: hidden;
-  }
-
-  .form-section * {
-    box-sizing: border-box;
-  }
-
-  .form-header {
-    max-width: 1050px;
-    margin: 0 auto 92px;
-    text-align: center;
-  }
-
-  .form-eyebrow {
-    font-size: 14px;
-    line-height: 1;
-    font-weight: 800;
-    letter-spacing: 9px;
-    text-transform: uppercase;
-    color: #a800ff;
-    margin-bottom: 20px;
-  }
-
-  .form-title {
-    font-size: clamp(64px, 6vw, 86px);
-    line-height: .88;
-    font-weight: 600;
-    letter-spacing: -6px;
-    color: #000;
-    margin-bottom: 34px;
-  }
-
-  .form-title span {
-    color: #a800ff;
-  }
-
-  .form-subtitle {
-    max-width: 880px;
-    margin: 0 auto;
-    font-size: 25px;
-    line-height: 1.05;
-    font-weight: 300;
-    letter-spacing: -1.4px;
-    color: #000;
-  }
-
-  .lead-form {
-    width: 100%;
-    max-width: 1070px;
-    margin: 0 auto;
-    padding: 74px 46px;
-    border: 2px solid #b400ff;
-    border-radius: 34px;
-    background: linear-gradient(180deg, #ffffff 0%, #f7f7f7 48%, #dfdfdf 100%);
-    box-shadow: 0 24px 36px rgba(0, 0, 0, .15);
-  }
-
-  .form-group {
-    width: 100%;
-    margin-bottom: 24px;
-  }
-
-  .form-group label {
-    display: block;
-    font-size: 23px;
-    line-height: 1;
-    font-weight: 700;
-    letter-spacing: -1.1px;
-    color: #000;
-    margin: 0 0 12px 10px;
-  }
-
-  .form-group input {
-    width: 100%;
-    height: 78px;
-    border: 2px solid #b400ff;
-    border-radius: 22px;
-    background: rgba(255,255,255,.55);
-    outline: none;
-    padding: 0 28px;
-    font-family: "Inter", Arial, sans-serif;
-    font-size: 24px;
-    font-weight: 300;
-    letter-spacing: -1.2px;
-    color: #111;
-    transition: border-color .25s ease, box-shadow .25s ease, background .25s ease;
-  }
-
-  .form-group input::placeholder {
-    color: rgba(0,0,0,.78);
-  }
-
-  .form-group input:focus {
-    border-color: #8f00ff;
-    background: #fff;
-    box-shadow: 0 0 0 5px rgba(168,0,255,.10);
-  }
-
-  .form-lgpd {
-    margin: 34px 8px 38px;
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    color: #1b1b1b;
-  }
-
-  .form-lgpd input {
-    width: 20px;
-    height: 20px;
-    min-width: 20px;
-    accent-color: #a800ff;
-    margin-top: 2px;
-  }
-
-  .form-lgpd label {
-    font-size: 14px;
-    line-height: 1.25;
-    font-weight: 300;
-    letter-spacing: -.3px;
-  }
-
-  .form-lgpd strong {
-    font-weight: 800;
-  }
-
-  .form-submit {
-    width: 100%;
-    height: 92px;
-    border: none;
-    border-radius: 999px;
-    background: linear-gradient(135deg, #9700ff 0%, #bd00ff 55%, #a000ff 100%);
-    color: #fff;
-    cursor: pointer;
-    font-family: "Inter", Arial, sans-serif;
-    font-size: 31px;
-    line-height: 1;
-    font-weight: 800;
-    letter-spacing: -1.6px;
-    text-transform: uppercase;
-    box-shadow: 0 18px 35px rgba(168,0,255,.25);
-    transition: transform .25s ease, filter .25s ease, opacity .25s ease;
-  }
-
-  .form-submit:hover {
-    transform: translateY(-3px);
-    filter: brightness(1.04);
-  }
-
-  .form-security-note {
-    max-width: 860px;
-    margin: 22px auto 0;
-    text-align: center;
-    font-size: 13px;
-    line-height: 1.35;
-    color: rgba(0,0,0,.62);
-    font-weight: 300;
-  }
-
-  .form-status {
-    margin-top: 20px;
-    text-align: center;
-    font-size: 16px;
-    font-weight: 700;
-    color: #3c0a5d;
-    min-height: 22px;
-  }
-
-  .form-reveal {
-    opacity: 0;
-    transform: translateY(44px);
-    filter: blur(18px);
-    transition:
-      opacity .9s cubic-bezier(.18,.78,.22,1),
-      transform .9s cubic-bezier(.18,.78,.22,1),
-      filter .9s cubic-bezier(.18,.78,.22,1);
-  }
-
-  .form-reveal.is-visible {
-    opacity: 1;
-    transform: translateY(0);
-    filter: blur(0);
-  }
-
-  @media (max-width: 900px) {
-    .form-section {
-      min-height: auto;
-      padding: 64px 32px 86px;
-    }
-
-    .form-header {
-      max-width: 360px;
-      margin: 0 auto 48px;
-    }
-
-    .form-eyebrow {
-      font-size: 7px;
-      letter-spacing: 5px;
-      margin-bottom: 16px;
-    }
-
-    .form-title {
-      font-size: 40px;
-      line-height: .88;
-      letter-spacing: -3px;
-      margin-bottom: 20px;
-    }
-
-    .form-subtitle {
-      max-width: 330px;
-      font-size: 15px;
-      line-height: 1.05;
-      letter-spacing: -.85px;
-    }
-
-    .lead-form {
-      max-width: 335px;
-      padding: 54px 22px;
-      border-radius: 34px;
-    }
-
-    .form-group {
-      margin-bottom: 22px;
-    }
-
-    .form-group label {
-      font-size: 15px;
-      letter-spacing: -.6px;
-      margin: 0 0 10px 8px;
-    }
-
-    .form-group input {
-      height: 58px;
-      border-radius: 22px;
-      padding: 0 18px;
-      font-size: 15px;
-      letter-spacing: -.6px;
-    }
-
-    .form-lgpd {
-      margin: 28px 4px 34px;
-      gap: 10px;
-    }
-
-    .form-lgpd label {
-      font-size: 11px;
-      line-height: 1.28;
-    }
-
-    .form-lgpd input {
-      width: 18px;
-      height: 18px;
-      min-width: 18px;
-    }
-
-    .form-submit {
-      height: 61px;
-      font-size: 21px;
-      letter-spacing: -1px;
-    }
-
-    .form-security-note {
-      max-width: 320px;
-      font-size: 10.5px;
-    }
-
-    .form-status {
-      font-size: 13px;
-    }
-  }
-
-  @media (max-width: 390px) {
-    .form-section {
-      padding-left: 28px;
-      padding-right: 28px;
-    }
-
-    .form-title {
-      font-size: 37px;
-    }
-
-    .lead-form {
-      max-width: 320px;
-      padding-left: 20px;
-      padding-right: 20px;
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .form-reveal {
-      opacity: 1;
-      transform: none;
-      filter: none;
-      transition: none;
-    }
-  }
-</style>
-
-<section class="form-section" id="cadastro">
-  <div class="form-header form-reveal">
-    <p class="form-eyebrow">Preencha o formulário</p>
-
-    <h2 class="form-title">
-      E esse <span>movimento</span> começa<br>
-      com você.
-    </h2>
-
-    <p class="form-subtitle">
-      Se você acredita que Sarandi e o Paraná merecem uma representante preparada, com história real e compromisso verdadeiro — essa é a sua hora de fazer parte.
-    </p>
-  </div>
-
-  <form 
-    class="lead-form form-reveal"
-    id="leadForm"
-    onsubmit="return false;"
-    autocomplete="on"
-  >
-    <div class="form-group">
-      <label for="nome">Nome completo:</label>
-      <input 
-        type="text"
-        id="nome"
-        name="nome"
-        minlength="3"
-        maxlength="120"
-        autocomplete="name"
-        inputmode="text"
-      >
-    </div>
-
-    <div class="form-group">
-      <label for="telefone">Telefone (com DDD):</label>
-      <input 
-        type="tel"
-        id="telefone"
-        name="telefone"
-        maxlength="15"
-        placeholder="(00) 00000-0000"
-        autocomplete="tel"
-        inputmode="tel"
-      >
-    </div>
-
-    <div class="form-group">
-      <label for="email">Email:</label>
-      <input 
-        type="email"
-        id="email"
-        name="email"
-        maxlength="140"
-        placeholder="Seu melhor email:"
-        autocomplete="email"
-        inputmode="email"
-      >
-    </div>
-
-    <div class="form-lgpd">
-      <input type="checkbox" id="lgpd" name="lgpd_aceite">
-      <label for="lgpd">
-        Estou ciente de que este é um <strong>protótipo visual</strong>. Nenhum dado será armazenado ou enviado nesta etapa.
-      </label>
-    </div>
-
-    <button class="form-submit" type="submit">
-      Enviar o formulário
-    </button>
-
-    <p class="form-status" id="formStatus" aria-live="polite">
-      Protótipo: este formulário ainda não envia dados.
-    </p>
-  </form>
-
-  <p class="form-security-note form-reveal">
-    Este é um formulário demonstrativo. Para uso real, será necessário conectar a página a um sistema seguro de recebimento, armazenamento e tratamento de dados conforme a LGPD.
-  </p>
-</section>
-
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const formItems = document.querySelectorAll(".form-reveal");
-
-    if ("IntersectionObserver" in window) {
-      const formObserver = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry, index) {
-          if (entry.isIntersecting) {
-            setTimeout(function () {
-              entry.target.classList.add("is-visible");
-            }, index * 120);
-
-            formObserver.unobserve(entry.target);
-          }
-        });
-      }, {
-        threshold: 0.14
-      });
-
-      formItems.forEach(function (item) {
-        formObserver.observe(item);
-      });
-    } else {
-      formItems.forEach(function (item) {
-        item.classList.add("is-visible");
-      });
-    }
-
-    const phoneInput = document.getElementById("telefone");
-    const leadForm = document.getElementById("leadForm");
-    const formStatus = document.getElementById("formStatus");
-
-    if (phoneInput) {
-      phoneInput.addEventListener("input", function () {
-        let value = phoneInput.value.replace(/\D/g, "");
-        value = value.slice(0, 11);
-
-        if (value.length <= 10) {
-          value = value.replace(/^(\d{2})(\d{4})(\d{0,4}).*/, "($1) $2-$3");
-        } else {
-          value = value.replace(/^(\d{2})(\d{5})(\d{0,4}).*/, "($1) $2-$3");
-        }
-
-        phoneInput.value = value.trim();
-      });
-    }
-
-    if (leadForm) {
-      leadForm.addEventListener("submit", function (event) {
-        event.preventDefault();
-
-        formStatus.textContent = "Protótipo: os dados não foram enviados nem armazenados.";
-
-        setTimeout(function () {
-          formStatus.textContent = "Protótipo: este formulário ainda não envia dados.";
-        }, 3500);
-      });
-    }
-  });
-</script>
-<!-- RODAPÉ - SIMONE MARTINI -->
-<style>
-  .site-footer {
-    width: 100%;
-    background: #050006;
-    color: #ffffff;
-    font-family: "Inter", Arial, sans-serif;
-    padding: 82px 70px 42px;
-    overflow: hidden;
-  }
-
-  .site-footer * {
-    box-sizing: border-box;
-  }
-
-  .footer-card {
-    width: 100%;
-    max-width: 1160px;
-    margin: 0 auto;
-    border: 1.5px solid rgba(168, 0, 255, .55);
-    border-radius: 38px;
-    padding: 58px 58px 48px;
-    background:
-      radial-gradient(circle at 20% 0%, rgba(168,0,255,.35), transparent 34%),
-      radial-gradient(circle at 90% 10%, rgba(189,0,255,.22), transparent 32%),
-      linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
-    box-shadow: 0 28px 60px rgba(0,0,0,.35);
-    position: relative;
-    overflow: hidden;
-  }
-
-  .footer-card::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    opacity: .10;
-    pointer-events: none;
-    background-image: radial-gradient(rgba(255,255,255,.75) 1px, transparent 1px);
-    background-size: 4px 4px;
-    mix-blend-mode: overlay;
-  }
-
-  .footer-content {
-    position: relative;
-    z-index: 2;
-    display: grid;
-    grid-template-columns: 1.2fr .8fr .8fr;
-    gap: 54px;
-    align-items: start;
-  }
-
-  .footer-brand-eyebrow {
-    font-size: 13px;
-    line-height: 1;
-    font-weight: 800;
-    letter-spacing: 7px;
-    text-transform: uppercase;
-    color: #b400ff;
-    margin-bottom: 20px;
-  }
-
-  .footer-title {
-    font-size: clamp(42px, 4.4vw, 66px);
-    line-height: .9;
-    font-weight: 600;
-    letter-spacing: -4px;
-    margin-bottom: 22px;
-    color: #fff;
-  }
-
-  .footer-title span {
-    color: #b400ff;
-  }
-
-  .footer-message {
-    max-width: 510px;
-    font-size: 21px;
-    line-height: 1.08;
-    font-weight: 300;
-    letter-spacing: -1.1px;
-    color: rgba(255,255,255,.88);
-  }
-
-  .footer-column-title {
-    font-size: 14px;
-    line-height: 1;
-    font-weight: 800;
-    letter-spacing: 5px;
-    text-transform: uppercase;
-    color: rgba(255,255,255,.72);
-    margin-bottom: 22px;
-  }
-
-  .footer-nav {
-    display: flex;
-    flex-direction: column;
-    gap: 13px;
-  }
-
-  .footer-nav a {
-    color: rgba(255,255,255,.88);
-    font-size: 18px;
-    line-height: 1.1;
-    font-weight: 300;
-    letter-spacing: -.7px;
-    text-decoration: none;
-    transition: color .25s ease, transform .25s ease;
-  }
-
-  .footer-nav a:hover {
-    color: #b400ff;
-    transform: translateX(4px);
-  }
-
-  .footer-socials {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 14px;
-  }
-
-  .footer-social-link {
-    width: 58px;
-    height: 58px;
-    border-radius: 999px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-    text-decoration: none;
-    background: linear-gradient(135deg, #9700ff 0%, #bd00ff 56%, #a000ff 100%);
-    box-shadow:
-      0 12px 24px rgba(168,0,255,.32),
-      0 0 22px rgba(168,0,255,.28);
-    transition: transform .25s ease, filter .25s ease;
-  }
-
-  .footer-social-link:hover {
-    transform: translateY(-4px);
-    filter: brightness(1.08);
-  }
-
-  .footer-social-link svg {
-    width: 28px;
-    height: 28px;
-    display: block;
-    fill: currentColor;
-  }
-
-  .footer-whatsapp {
-    background: linear-gradient(135deg, #26d366 0%, #12b957 100%);
-    box-shadow:
-      0 12px 24px rgba(38,211,102,.26),
-      0 0 22px rgba(38,211,102,.22);
-  }
-
-  .footer-bottom {
-    position: relative;
-    z-index: 2;
-    max-width: 1160px;
-    margin: 28px auto 0;
-    display: flex;
-    justify-content: space-between;
-    gap: 24px;
-    color: rgba(255,255,255,.50);
-    font-size: 13px;
-    line-height: 1.35;
-    font-weight: 300;
-    letter-spacing: -.2px;
-  }
-
-  .footer-bottom strong {
-    color: rgba(255,255,255,.78);
-    font-weight: 700;
-  }
-
-  .footer-reveal {
-    opacity: 0;
-    transform: translateY(42px);
-    filter: blur(16px);
-    transition:
-      opacity .85s cubic-bezier(.18,.78,.22,1),
-      transform .85s cubic-bezier(.18,.78,.22,1),
-      filter .85s cubic-bezier(.18,.78,.22,1);
-  }
-
-  .footer-reveal.is-visible {
-    opacity: 1;
-    transform: translateY(0);
-    filter: blur(0);
-  }
-
-  @media (max-width: 900px) {
-    .site-footer {
-      padding: 58px 28px 34px;
-    }
-
-    .footer-card {
-      border-radius: 32px;
-      padding: 44px 30px 36px;
-    }
-
-    .footer-content {
-      display: flex;
-      flex-direction: column;
-      gap: 42px;
-      text-align: center;
-      align-items: center;
-    }
-
-    .footer-brand-eyebrow {
-      font-size: 7px;
-      letter-spacing: 5px;
-      margin-bottom: 17px;
-    }
-
-    .footer-title {
-      font-size: 40px;
-      line-height: .9;
-      letter-spacing: -3px;
-      margin-bottom: 18px;
-    }
-
-    .footer-message {
-      max-width: 330px;
-      font-size: 15px;
-      line-height: 1.08;
-      letter-spacing: -.75px;
-    }
-
-    .footer-column-title {
-      font-size: 8px;
-      letter-spacing: 4px;
-      margin-bottom: 18px;
-    }
-
-    .footer-nav {
-      align-items: center;
-      gap: 12px;
-    }
-
-    .footer-nav a {
-      font-size: 16px;
-    }
-
-    .footer-socials {
-      justify-content: center;
-    }
-
-    .footer-social-link {
-      width: 54px;
-      height: 54px;
-    }
-
-    .footer-social-link svg {
-      width: 25px;
-      height: 25px;
-    }
-
-    .footer-bottom {
-      flex-direction: column;
-      text-align: center;
-      align-items: center;
-      font-size: 11px;
-      max-width: 330px;
-      margin-top: 24px;
-    }
-  }
-
-  @media (max-width: 390px) {
-    .footer-card {
-      padding-left: 24px;
-      padding-right: 24px;
-    }
-
-    .footer-title {
-      font-size: 37px;
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .footer-reveal {
-      opacity: 1;
-      transform: none;
-      filter: none;
-      transition: none;
-    }
-  }
-<!-- RODAPÉ - SIMONE MARTINI -->
-<style>
-  .site-footer {
-    width: 100%;
-    background: #050006;
-    color: #ffffff;
-    font-family: "Inter", Arial, sans-serif;
-    padding: 82px 70px 42px;
-    overflow: hidden;
-  }
-
-  .site-footer * {
-    box-sizing: border-box;
-  }
-
-  .footer-card {
-    width: 100%;
-    max-width: 1160px;
-    margin: 0 auto;
-    border: 1.5px solid rgba(168, 0, 255, .55);
-    border-radius: 38px;
-    padding: 58px 58px 48px;
-    background:
-      radial-gradient(circle at 20% 0%, rgba(168,0,255,.35), transparent 34%),
-      radial-gradient(circle at 90% 10%, rgba(189,0,255,.22), transparent 32%),
-      linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
-    box-shadow: 0 28px 60px rgba(0,0,0,.35);
-    position: relative;
-    overflow: hidden;
-  }
-
-  .footer-card::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    opacity: .10;
-    pointer-events: none;
-    background-image: radial-gradient(rgba(255,255,255,.75) 1px, transparent 1px);
-    background-size: 4px 4px;
-    mix-blend-mode: overlay;
-  }
-
-  .footer-content {
-    position: relative;
-    z-index: 2;
-    display: grid;
-    grid-template-columns: 1.2fr .8fr .8fr;
-    gap: 54px;
-    align-items: start;
-  }
-
-  .footer-brand-eyebrow {
-    font-size: 13px;
-    line-height: 1;
-    font-weight: 800;
-    letter-spacing: 7px;
-    text-transform: uppercase;
-    color: #b400ff;
-    margin-bottom: 20px;
-  }
-
-  .footer-title {
-    font-size: clamp(42px, 4.4vw, 66px);
-    line-height: .9;
-    font-weight: 600;
-    letter-spacing: -4px;
-    margin-bottom: 22px;
-    color: #fff;
-  }
-
-  .footer-title span {
-    color: #b400ff;
-  }
-
-  .footer-message {
-    max-width: 510px;
-    font-size: 21px;
-    line-height: 1.08;
-    font-weight: 300;
-    letter-spacing: -1.1px;
-    color: rgba(255,255,255,.88);
-  }
-
-  .footer-column-title {
-    font-size: 14px;
-    line-height: 1;
-    font-weight: 800;
-    letter-spacing: 5px;
-    text-transform: uppercase;
-    color: rgba(255,255,255,.72);
-    margin-bottom: 22px;
-  }
-
-  .footer-nav {
-    display: flex;
-    flex-direction: column;
-    gap: 13px;
-  }
-
-  .footer-nav a {
-    color: rgba(255,255,255,.88);
-    font-size: 18px;
-    line-height: 1.1;
-    font-weight: 300;
-    letter-spacing: -.7px;
-    text-decoration: none;
-    transition: color .25s ease, transform .25s ease;
-  }
-
-  .footer-nav a:hover {
-    color: #b400ff;
-    transform: translateX(4px);
-  }
-
-  .footer-socials {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 14px;
-  }
-
-  .footer-social-link {
-    width: 58px;
-    height: 58px;
-    border-radius: 999px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-    text-decoration: none;
-    background: linear-gradient(135deg, #9700ff 0%, #bd00ff 56%, #a000ff 100%);
-    box-shadow:
-      0 12px 24px rgba(168,0,255,.32),
-      0 0 22px rgba(168,0,255,.28);
-    transition: transform .25s ease, filter .25s ease;
-  }
-
-  .footer-social-link:hover {
-    transform: translateY(-4px);
-    filter: brightness(1.08);
-  }
-
-  .footer-social-link svg {
-    width: 28px;
-    height: 28px;
-    display: block;
-    fill: currentColor;
-  }
-
-  .footer-whatsapp {
-    background: linear-gradient(135deg, #26d366 0%, #12b957 100%);
-    box-shadow:
-      0 12px 24px rgba(38,211,102,.26),
-      0 0 22px rgba(38,211,102,.22);
-  }
-
-  .footer-bottom {
-    position: relative;
-    z-index: 2;
-    max-width: 1160px;
-    margin: 28px auto 0;
-    display: flex;
-    justify-content: space-between;
-    gap: 24px;
-    color: rgba(255,255,255,.50);
-    font-size: 13px;
-    line-height: 1.35;
-    font-weight: 300;
-    letter-spacing: -.2px;
-  }
-
-  .footer-bottom strong {
-    color: rgba(255,255,255,.78);
-    font-weight: 700;
-  }
-
-  .footer-reveal {
-    opacity: 0;
-    transform: translateY(42px);
-    filter: blur(16px);
-    transition:
-      opacity .85s cubic-bezier(.18,.78,.22,1),
-      transform .85s cubic-bezier(.18,.78,.22,1),
-      filter .85s cubic-bezier(.18,.78,.22,1);
-  }
-
-  .footer-reveal.is-visible {
-    opacity: 1;
-    transform: translateY(0);
-    filter: blur(0);
-  }
-
-  @media (max-width: 900px) {
-    .site-footer {
-      padding: 58px 28px 34px;
-    }
-
-    .footer-card {
-      border-radius: 32px;
-      padding: 44px 30px 36px;
-    }
-
-    .footer-content {
-      display: flex;
-      flex-direction: column;
-      gap: 42px;
-      text-align: center;
-      align-items: center;
-    }
-
-    .footer-brand-eyebrow {
-      font-size: 7px;
-      letter-spacing: 5px;
-      margin-bottom: 17px;
-    }
-
-    .footer-title {
-      font-size: 40px;
-      line-height: .9;
-      letter-spacing: -3px;
-      margin-bottom: 18px;
-    }
-
-    .footer-message {
-      max-width: 330px;
-      font-size: 15px;
-      line-height: 1.08;
-      letter-spacing: -.75px;
-    }
-
-    .footer-column-title {
-      font-size: 8px;
-      letter-spacing: 4px;
-      margin-bottom: 18px;
-    }
-
-    .footer-nav {
-      align-items: center;
-      gap: 12px;
-    }
-
-    .footer-nav a {
-      font-size: 16px;
-    }
-
-    .footer-socials {
-      justify-content: center;
-    }
-
-    .footer-social-link {
-      width: 54px;
-      height: 54px;
-    }
-
-    .footer-social-link svg {
-      width: 25px;
-      height: 25px;
-    }
-
-    .footer-bottom {
-      flex-direction: column;
-      text-align: center;
-      align-items: center;
-      font-size: 11px;
-      max-width: 330px;
-      margin-top: 24px;
-    }
-  }
-
-  @media (max-width: 390px) {
-    .footer-card {
-      padding-left: 24px;
-      padding-right: 24px;
-    }
-
-    .footer-title {
-      font-size: 37px;
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .footer-reveal {
-      opacity: 1;
-      transform: none;
-      filter: none;
-      transition: none;
-    }
-  }
-<!-- RODAPÉ - SIMONE MARTINI -->
-<style>
-  .site-footer {
-    width: 100%;
-    background: #050006;
-    color: #ffffff;
-    font-family: "Inter", Arial, sans-serif;
-    padding: 70px 70px 36px;
-    overflow: hidden;
-  }
-
-  .site-footer * {
-    box-sizing: border-box;
-  }
-
-  .footer-card {
-    width: 100%;
-    max-width: 1160px;
-    margin: 0 auto;
-    border: 1.5px solid rgba(168, 0, 255, .55);
-    border-radius: 34px;
-    padding: 48px 54px;
-    background:
-      radial-gradient(circle at 18% 0%, rgba(168,0,255,.30), transparent 34%),
-      radial-gradient(circle at 90% 10%, rgba(189,0,255,.20), transparent 32%),
-      linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
-    box-shadow: 0 28px 60px rgba(0,0,0,.35);
-    position: relative;
-    overflow: hidden;
-  }
-
-  .footer-card::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    opacity: .09;
-    pointer-events: none;
-    background-image: radial-gradient(rgba(255,255,255,.75) 1px, transparent 1px);
-    background-size: 4px 4px;
-    mix-blend-mode: overlay;
-  }
-
-  .footer-content {
-    position: relative;
-    z-index: 2;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 48px;
-    align-items: start;
-  }
-
-  .footer-brand-name {
-    font-size: clamp(34px, 3.8vw, 54px);
-    line-height: .92;
-    font-weight: 600;
-    letter-spacing: -3.2px;
-    color: #fff;
-  }
-
-  .footer-brand-name span {
-    color: #b400ff;
-  }
-
-  .footer-column-title {
-    font-size: 14px;
-    line-height: 1;
-    font-weight: 800;
-    letter-spacing: 5px;
-    text-transform: uppercase;
-    color: rgba(255,255,255,.72);
-    margin-bottom: 22px;
-  }
-
-  .footer-nav {
-    display: flex;
-    flex-direction: column;
-    gap: 13px;
-  }
-
-  .footer-nav a {
-    color: rgba(255,255,255,.88);
-    font-size: 18px;
-    line-height: 1.1;
-    font-weight: 300;
-    letter-spacing: -.7px;
-    text-decoration: none;
-    transition: color .25s ease, transform .25s ease;
-  }
-
-  .footer-nav a:hover {
-    color: #b400ff;
-    transform: translateX(4px);
-  }
-
-  .footer-socials {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 14px;
-  }
-
-  .footer-social-link {
-    width: 58px;
-    height: 58px;
-    border-radius: 999px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-    text-decoration: none;
-    background: linear-gradient(135deg, #9700ff 0%, #bd00ff 56%, #a000ff 100%);
-    box-shadow:
-      0 12px 24px rgba(168,0,255,.32),
-      0 0 22px rgba(168,0,255,.28);
-    transition: transform .25s ease, filter .25s ease;
-  }
-
-  .footer-social-link:hover {
-    transform: translateY(-4px);
-    filter: brightness(1.08);
-  }
-
-  .footer-social-link svg {
-    width: 28px;
-    height: 28px;
-    display: block;
-    fill: currentColor;
-  }
-
-  .footer-whatsapp {
-    background: linear-gradient(135deg, #26d366 0%, #12b957 100%);
-    box-shadow:
-      0 12px 24px rgba(38,211,102,.26),
-      0 0 22px rgba(38,211,102,.22);
-  }
-
-  .footer-bottom {
-    max-width: 1160px;
-    margin: 26px auto 0;
-    display: flex;
-    justify-content: space-between;
-    gap: 24px;
-    color: rgba(255,255,255,.50);
-    font-size: 13px;
-    line-height: 1.35;
-    font-weight: 300;
-    letter-spacing: -.2px;
-  }
-
-  .footer-bottom strong {
-    color: rgba(255,255,255,.78);
-    font-weight: 700;
-  }
-
-  .footer-reveal {
-    opacity: 0;
-    transform: translateY(42px);
-    filter: blur(16px);
-    transition:
-      opacity .85s cubic-bezier(.18,.78,.22,1),
-      transform .85s cubic-bezier(.18,.78,.22,1),
-      filter .85s cubic-bezier(.18,.78,.22,1);
-  }
-
-  .footer-reveal.is-visible {
-    opacity: 1;
-    transform: translateY(0);
-    filter: blur(0);
-  }
-
-  @media (max-width: 900px) {
-    .site-footer {
-      padding: 54px 28px 34px;
-    }
-
-    .footer-card {
-      border-radius: 30px;
-      padding: 42px 28px;
-    }
-
-    .footer-content {
-      display: flex;
-      flex-direction: column;
-      gap: 42px;
-      text-align: center;
-      align-items: center;
-    }
-
-    .footer-brand-name {
-      font-size: 40px;
-      line-height: .92;
-      letter-spacing: -3px;
-    }
-
-    .footer-column-title {
-      font-size: 8px;
-      letter-spacing: 4px;
-      margin-bottom: 18px;
-    }
-
-    .footer-nav {
-      align-items: center;
-      gap: 12px;
-    }
-
-    .footer-nav a {
-      font-size: 16px;
-    }
-
-    .footer-socials {
-      justify-content: center;
-    }
-
-    .footer-social-link {
-      width: 54px;
-      height: 54px;
-    }
-
-    .footer-social-link svg {
-      width: 25px;
-      height: 25px;
-    }
-
-    .footer-bottom {
-      flex-direction: column;
-      text-align: center;
-      align-items: center;
-      font-size: 11px;
-      max-width: 330px;
-      margin-top: 24px;
-    }
-  }
-
-  @media (max-width: 390px) {
-    .footer-card {
-      padding-left: 24px;
-      padding-right: 24px;
-    }
-
-    .footer-brand-name {
-      font-size: 37px;
-    }
-  }
-</style>
-
-<footer class="site-footer" id="rodape">
-  <div class="footer-card footer-reveal">
-    <div class="footer-content">
-
-      <div class="footer-brand">
-        <h2 class="footer-brand-name">
-          Simone<br>
-          <span>Martini</span>
-        </h2>
-      </div>
-
-      <div class="footer-pages">
-        <p class="footer-column-title">Páginas</p>
-
-        <nav class="footer-nav" aria-label="Links das seções do site">
-          <a href="#inicio">Início</a>
-          <a href="#sobre">Quem é Simone Martini</a>
-          <a href="#projetos">Projetos e causas</a>
-          <a href="#desafio">Por que deputada estadual?</a>
-          <a href="#cadastro">Faça parte</a>
-        </nav>
-      </div>
-
-      <div class="footer-social">
-        <p class="footer-column-title">Redes sociais</p>
-
-        <div class="footer-socials">
-          <a class="footer-social-link" href="https://www.instagram.com/SEUUSUARIO" target="_blank" rel="noopener" aria-label="Instagram">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M7.8 2h8.4A5.8 5.8 0 0 1 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8A5.8 5.8 0 0 1 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2Zm0 2A3.8 3.8 0 0 0 4 7.8v8.4A3.8 3.8 0 0 0 7.8 20h8.4a3.8 3.8 0 0 0 3.8-3.8V7.8A3.8 3.8 0 0 0 16.2 4H7.8Zm8.7 1.8a1.3 1.3 0 1 1 0 2.6 1.3 1.3 0 0 1 0-2.6ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z"/>
-            </svg>
-          </a>
-
-          <a class="footer-social-link" href="https://www.tiktok.com/@SEUUSUARIO" target="_blank" rel="noopener" aria-label="TikTok">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M16.6 2c.3 2.5 1.8 4.2 4.4 4.4v3c-1.5.1-2.8-.3-4.3-1.2v6.4c0 3.2-2 6.4-6.3 6.4-3.5 0-6.1-2.3-6.1-5.6 0-3.8 3.6-6.2 7.3-5.4v3.2c-.6-.2-1.1-.2-1.7 0-1.1.3-2.1 1.1-2.1 2.4 0 1.4 1.1 2.3 2.5 2.3 1.7 0 2.7-1 2.7-3.1V2h3.6Z"/>
-            </svg>
-          </a>
-
-          <a class="footer-social-link" href="https://www.youtube.com/@SEUCANAL" target="_blank" rel="noopener" aria-label="YouTube">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M21.6 7.2s-.2-1.6-.9-2.3c-.9-.9-1.9-.9-2.3-1C15.2 3.6 12 3.6 12 3.6s-3.2 0-6.4.3c-.5.1-1.5.1-2.3 1-.7.7-.9 2.3-.9 2.3S2 9.1 2 11v1.8c0 1.9.4 3.8.4 3.8s.2 1.6.9 2.3c.9.9 2.1.9 2.6 1 1.9.2 6.1.3 6.1.3s3.2 0 6.4-.3c.5-.1 1.5-.1 2.3-1 .7-.7.9-2.3.9-2.3s.4-1.9.4-3.8V11c0-1.9-.4-3.8-.4-3.8ZM10 15.2V8.8l5.8 3.2-5.8 3.2Z"/>
-            </svg>
-          </a>
-
-          <a class="footer-social-link footer-whatsapp" href="https://wa.me/5544999999999" target="_blank" rel="noopener" aria-label="WhatsApp">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M20.5 3.5A11.8 11.8 0 0 0 12.1 0C5.6 0 .3 5.3.3 11.8c0 2.1.5 4.1 1.6 5.9L0 24l6.5-1.8c1.7.9 3.6 1.4 5.6 1.4 6.5 0 11.8-5.3 11.8-11.8 0-3.1-1.2-6.1-3.4-8.3ZM12.1 21.6c-1.8 0-3.4-.5-4.9-1.3l-.4-.2-3.8 1 1-3.7-.2-.4a9.6 9.6 0 0 1-1.5-5.1c0-5.4 4.4-9.8 9.8-9.8 2.6 0 5.1 1 6.9 2.9a9.7 9.7 0 0 1 2.9 6.9c0 5.3-4.4 9.7-9.8 9.7Zm5.4-7.3c-.3-.1-1.7-.8-1.9-.9-.3-.1-.5-.1-.7.2-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.2-1.4-.8-.7-1.4-1.6-1.5-1.9-.2-.3 0-.4.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5s-.7-1.6-.9-2.2c-.2-.5-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.1.2 2.1 3.3 5.2 4.6.7.3 1.3.5 1.8.6.8.2 1.4.2 2 .1.6-.1 1.7-.7 1.9-1.3.2-.6.2-1.2.2-1.3-.1-.2-.3-.3-.6-.4Z"/>
-            </svg>
-          </a>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-  <div class="footer-bottom">
-    <p>© 2026 <strong>Simone Martini</strong>. Todos os direitos reservados.</p>
-    <p>Protótipo visual. Formulário demonstrativo.</p>
-  </div>
-</footer>
-
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const footerItems = document.querySelectorAll(".footer-reveal");
-
-    if ("IntersectionObserver" in window) {
-      const footerObserver = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-            footerObserver.unobserve(entry.target);
-          }
-        });
-      }, {
-        threshold: 0.14
-      });
-
-      footerItems.forEach(function (item) {
-        footerObserver.observe(item);
-      });
-    } else {
-      footerItems.forEach(function (item) {
-        item.classList.add("is-visible");
-      });
-    }
-  });
-</script>
